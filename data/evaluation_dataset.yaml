@@ -1,0 +1,35 @@
+dataset_name: "Multi-Model Evaluation Dataset"
+description: "Comparative evaluation dataset for multiple AI models"
+task_type: "question_answering"
+version: "1.0"
+
+evaluations:
+  - input: "What is the capital of France?"
+    expected_output: "Paris is the capital of France."
+    context: "Geography question about European capitals"
+    category: "geography"
+    difficulty: "easy"
+    model_responses:
+      claude_3_sonnet: "b dscsaiknesofewjgmorwigkerr."
+      gpt_4: "The capital city of France is Paris."
+      lm_3: "Paris is the capital of France."
+     
+      
+  - input: "Explain quantum computing in simple terms"
+    expected_output: "Quantum computing uses quantum mechanics principles to process information"
+    context: "Technology explanation for general audience"
+    category: "technology"
+    difficulty: "medium"
+    model_responses:
+      claude_3_sonnet: "Quantum computing is a revolutionary approach to computation that leverages quantum mechanical phenomena like superposition "
+      gpt_4: "gsfesgesgrdhrdh"
+      lm_3: "Quantum computing is a new type of computing that uses the principles of quantum mechanics to process information in ways that classical computers cannot."
+  - input: "What is AI?"
+    expected_output: "Artificial Intelligence (AI) is the simulation of human intelligence "
+    context: "Technology explanation for general audience"
+    category: "technology"
+    difficulty: "medium"
+    model_responses:
+      claude_3_sonnet: "Artificial Intelligence (AI) is the simulation of human intelligence "
+      gpt_4: "gsfesgesgrdhrdh"
+      lm_3: "Artificial Intelligence (AI) is the simulation of human intelligence processes by machines, especially computer systems."
