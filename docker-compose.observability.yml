@@ -1,0 +1,91 @@
+services:
+  # Your FastAPI Application
+  evaluation-backend:
+    build: .
+    container_name: evaluation-backend
+    ports:
+      - "8000:8000"  # FastAPI app
+      - "8001:8001"  # Metrics endpoint
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017
+      - JAEGER_ENDPOINT=http://jaeger:14268/api/traces
+      - PROMETHEUS_PORT=8001
+      - LOG_LEVEL=INFO
+      - DEBUG=true
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data  # Mount your data directory
+    depends_on:
+      - mongodb
+      - jaeger
+    restart: unless-stopped
+    networks:
+      - evaluation-network
+
+  # MongoDB
+  mongodb:
+    image: mongo:7
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    networks:
+      - evaluation-network
+
+  # Jaeger - Distributed Tracing
+  jaeger:
+    image: jaegertracing/all-in-one:1.47
+    container_name: jaeger
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "14268:14268"  # Jaeger collector HTTP
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+      - LOG_LEVEL=debug
+    restart: unless-stopped
+    networks:
+      - evaluation-network
+
+  # Prometheus - Metrics Collection
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    networks:
+      - evaluation-network
+
+  # Grafana - Visualization
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+    restart: unless-stopped
+    networks:
+      - evaluation-network
+
+volumes:
+  mongodb_data:
+  grafana_data:
+
+networks:
+  evaluation-network:
+    driver: bridge
