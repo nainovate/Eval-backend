@@ -4168,3 +4168,7 @@
 {"error": "localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 687f7386b74b9adf5677c374, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>", "event": "Failed to start application", "level": "error", "timestamp": "2025-07-22T11:18:35.814690Z"}
 {"event": "Shutting down application", "level": "info", "timestamp": "2025-07-22T11:18:35.815685Z"}
 {"event": "Disconnected from MongoDB", "level": "info", "timestamp": "2025-07-22T11:18:35.815685Z"}
+{"version": "1.0.0", "event": "Starting Claude Evaluation Backend", "level": "info", "timestamp": "2025-07-22T11:27:50.198532Z"}
+{"event": "Database indexes created successfully", "level": "info", "timestamp": "2025-07-22T11:27:50.251431Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "level": "info", "timestamp": "2025-07-22T11:27:50.251431Z"}
+{"event": "Application startup complete", "level": "info", "timestamp": "2025-07-22T11:27:50.251431Z"}
