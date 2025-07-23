@@ -4,17 +4,27 @@ motor
 pymongo
 pydantic
 
-# Use opentelemetry-api 1.24.0 to be compatible with deepeval
+# OpenTelemetry Core
+opentelemetry-api==1.24.0
+opentelemetry-sdk==1.24.0
+opentelemetry-semantic-conventions
 
-opentelemetry-api
-opentelemetry-sdk
+# OpenTelemetry Instrumentations
 opentelemetry-instrumentation-fastapi
 opentelemetry-instrumentation-asgi
+opentelemetry-instrumentation-requests
+opentelemetry-instrumentation-asyncio
 
+# OpenTelemetry Exporters
 opentelemetry-exporter-jaeger
+opentelemetry-exporter-jaeger-thrift
 opentelemetry-exporter-prometheus
 
-prometheus-client
+# Metrics and Monitoring
+prometheus-client==0.19.0
+prometheus-fastapi-instrumentator==6.1.0
+
+# Other Dependencies
 deepeval
 pyyaml
 structlog
@@ -22,5 +32,3 @@ python-multipart
 pydantic-settings==2.1.0
 pydantic-core==2.14.6
 httpx==0.27.0
-prometheus-client==0.19.0
-prometheus-fastapi-instrumentator==6.1.0

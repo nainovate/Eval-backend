@@ -4172,3 +4172,303 @@
 {"event": "Database indexes created successfully", "level": "info", "timestamp": "2025-07-22T11:27:50.251431Z"}
 {"database": "evaluation_db", "event": "Successfully connected to MongoDB", "level": "info", "timestamp": "2025-07-22T11:27:50.251431Z"}
 {"event": "Application startup complete", "level": "info", "timestamp": "2025-07-22T11:27:50.251431Z"}
+{"event": "Shutting down application", "level": "info", "timestamp": "2025-07-22T11:44:43.976182Z"}
+{"event": "Disconnected from MongoDB", "level": "info", "timestamp": "2025-07-22T11:44:44.018767Z"}
+Overriding of current TracerProvider is not allowed
+Overriding of current MeterProvider is not allowed
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:04:04.553818Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:04:04.699538Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:04:04.699538Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:04:04.699538Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:07:36.184857Z"}
+{"status_code": 200, "duration_ms": 126.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:07:36.285508Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:07:36.391774Z"}
+{"status_code": 404, "duration_ms": 5.54, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:07:36.397316Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:07:51.116781Z"}
+{"status_code": 200, "duration_ms": 44.85, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:07:51.160165Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:12:24.909243Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:12:25.277164Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:12:25.277164Z"}
+{"status_code": 200, "duration_ms": 423.67, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:12:25.332277Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:27:51.857296Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:27:51.912807Z"}
+Overriding of current TracerProvider is not allowed
+Overriding of current MeterProvider is not allowed
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:28:17.476122Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:28:18.661356Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:28:18.661356Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:28:18.662368Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:28:23.215448Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:28:23.222417Z"}
+Overriding of current TracerProvider is not allowed
+Overriding of current MeterProvider is not allowed
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:28:34.764985Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:28:34.844712Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:28:34.845716Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:28:34.846722Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:29:09.632257Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:29:09.637814Z"}
+Overriding of current TracerProvider is not allowed
+Overriding of current MeterProvider is not allowed
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:29:22.187638Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:29:22.228491Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:29:22.229481Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:29:22.229481Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:32:35.843485Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:32:35.849101Z"}
+Overriding of current TracerProvider is not allowed
+Overriding of current MeterProvider is not allowed
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:32:48.354420Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:32:48.435862Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:32:48.437814Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:32:48.438809Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:33:34.438082Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:33:34.441083Z"}
+Overriding of current TracerProvider is not allowed
+Overriding of current MeterProvider is not allowed
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:36:26.018989Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:36:26.055497Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T02:36:26.056060Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T02:36:26.056060Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:36:27.548752Z"}
+{"status_code": 200, "duration_ms": 2.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:36:27.551726Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:36:32.852115Z"}
+{"status_code": 200, "duration_ms": 1.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T02:36:32.854261Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:23:37.714384Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:23:37.749512Z"}
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:23:50.503641Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:23:50.873842Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:23:50.874841Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:23:50.874841Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:24:09.655042Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:24:09.657812Z"}
+Attempting to instrument while already instrumented
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:24:19.605420Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:24:19.658182Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:24:19.659183Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:24:19.659183Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:25:20.970861Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:25:20.972693Z"}
+Attempting to instrument while already instrumented
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:25:29.939206Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:25:30.007683Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:25:30.007683Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:25:30.008794Z"}
+Attempting to instrument while already instrumented
+{"version": "1.0.0", "service_name": "claude-evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:33:20.623165Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:33:20.669542Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:33:20.669542Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:33:20.669542Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T04:35:18.612094Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T04:35:18.655681Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T04:35:40.076629Z"}
+{"status_code": 200, "duration_ms": 5.46, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T04:35:40.080406Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T04:35:45.330131Z"}
+{"status_code": 200, "duration_ms": 3.42, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T04:35:45.333548Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T05:06:02.026243Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:06:02.093862Z"}
+Attempting to instrument FastAPI app while already instrumented
+{"version": "1.0.0", "service_name": "claude-evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T05:06:12.129236Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:06:12.189354Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:06:12.190345Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T05:06:12.190345Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T05:16:12.894158Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:16:12.933615Z"}
+Attempting to instrument FastAPI app while already instrumented
+{"version": "1.0.0", "service_name": "claude-evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T05:16:37.186296Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:16:37.223744Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:16:37.224661Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T05:16:37.224661Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T05:22:19.754496Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:22:19.858901Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:22:19.859755Z"}
+{"error": "404: File not found: C:\\Users\\Chandu gorla\\Desktop\\Evaluation-Backend\\data\\evaluation_dataset.yaml", "event": "Failed to evaluate dataset", "logger": "app.routes.evaluation", "level": "error", "timestamp": "2025-07-23T05:22:19.864391Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\routes\\evaluation.py\", line 44, in evaluate_dataset_structured\n    raise HTTPException(status_code=404, detail=f\"File not found: {request.file_path}\")\nfastapi.exceptions.HTTPException: 404: File not found: C:\\Users\\Chandu gorla\\Desktop\\Evaluation-Backend\\data\\evaluation_dataset.yaml"}
+{"status_code": 500, "duration_ms": 121.93, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T05:22:19.873916Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T05:24:51.988549Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:24:52.016771Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T05:24:52.016771Z"}
+{"dataset_name": "Multi-Model Evaluation Dataset", "total_evaluations": 3, "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting dataset evaluation", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-23T05:24:52.084302Z"}
+{"input_preview": "What is the capital of France?", "models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:52.092312Z"}
+{"model_name": "claude_3_sonnet", "evaluation_type": "geography", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:52.100384Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:52.108189Z"}
+{"model_name": "gpt_4", "evaluation_type": "geography", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:52.110190Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:52.110190Z"}
+{"model_name": "lm_3", "evaluation_type": "geography", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:52.111196Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:52.112191Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:57.236890Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:57.427730Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:57.464761Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:58.390651Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 0.5, "duration_ms": 6291.845083236694, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:58.393802Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:59.937890Z"}
+{"model_name": "lm_3", "overall_score": 1.0, "duration_ms": 7826.693773269653, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:24:59.939019Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.635036Z"}
+{"model_name": "gpt_4", "overall_score": 1.0, "duration_ms": 8526.14426612854, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.637344Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "lm_3", "average_score": 0.8333333333333334, "duration_ms": 8548.539400100708, "event": "Batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.641120Z"}
+{"test_id": "test-case-001", "evaluation_id": "6880722c3877192304d0ba74", "event": "Completed evaluation 1/3", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-23T05:25:00.808296Z"}
+{"input_preview": "Explain quantum computing in simple terms", "models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.808820Z"}
+{"model_name": "claude_3_sonnet", "evaluation_type": "technology", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.809372Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.809898Z"}
+{"model_name": "gpt_4", "evaluation_type": "technology", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.809898Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.810424Z"}
+{"model_name": "lm_3", "evaluation_type": "technology", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.810940Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:00.810940Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:03.687752Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:04.592087Z"}
+{"score": 0.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:04.606565Z"}
+{"model_name": "gpt_4", "overall_score": 0.5, "duration_ms": 3798.6695766448975, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:04.608567Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:07.141772Z"}
+{"score": 1.0, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:07.155748Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 0.5, "duration_ms": 6347.366809844971, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:07.156739Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.336711Z"}
+{"model_name": "lm_3", "overall_score": 1.0, "duration_ms": 10526.85022354126, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.337790Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "lm_3", "average_score": 0.6666666666666666, "duration_ms": 10531.270027160645, "event": "Batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.340090Z"}
+{"test_id": "test-case-002", "evaluation_id": "688072373877192304d0ba78", "event": "Completed evaluation 2/3", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-23T05:25:11.347677Z"}
+{"input_preview": "What is AI?", "models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.348900Z"}
+{"model_name": "claude_3_sonnet", "evaluation_type": "technology", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.350877Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.352488Z"}
+{"model_name": "gpt_4", "evaluation_type": "technology", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.353671Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.354417Z"}
+{"model_name": "lm_3", "evaluation_type": "technology", "selected_metrics": ["answer_relevancy", "faithfulness"], "event": "Starting evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.355754Z"}
+{"metrics": ["answer_relevancy", "faithfulness"], "event": "Running 2 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:11.356278Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:13.798908Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:15.060007Z"}
+{"model_name": "gpt_4", "overall_score": 1.0, "duration_ms": 3708.5421085357666, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:15.063277Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:15.133818Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric answer_relevancy completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:15.568510Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:16.543342Z"}
+{"model_name": "lm_3", "overall_score": 1.0, "duration_ms": 5189.594745635986, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:16.545349Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "event": "DeepEval metric faithfulness completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:17.228757Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 1.0, "duration_ms": 5878.4050941467285, "event": "Evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:17.229282Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "lm_3", "average_score": 1.0, "duration_ms": 5881.393909454346, "event": "Batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T05:25:17.230294Z"}
+{"test_id": "test-case-003", "evaluation_id": "6880723d3877192304d0ba7c", "event": "Completed evaluation 3/3", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-23T05:25:17.232948Z"}
+{"dataset_name": "Multi-Model Evaluation Dataset", "total_evaluations": 3, "best_model": "lm_3", "metrics_used": ["answer_relevancy", "faithfulness"], "event": "Dataset evaluation completed", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-23T05:25:17.232948Z"}
+{"status_code": 200, "duration_ms": 25249.33, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T05:25:17.237883Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T05:30:15.786869Z"}
+{"status_code": 200, "duration_ms": 105.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T05:30:15.892746Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T06:44:38.205262Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T06:44:38.279351Z"}
+Attempting to instrument FastAPI app while already instrumented
+{"version": "1.0.0", "service_name": "claude-evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T06:44:56.742904Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T06:44:56.886232Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T06:44:56.886232Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T06:44:56.887253Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T06:45:14.645962Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T06:45:14.648974Z"}
+Attempting to instrument FastAPI app while already instrumented
+{"version": "1.0.0", "service_name": "claude-evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:15:04.245999Z"}
+{"total_metrics": 10, "available_metrics": ["answer_relevancy", "faithfulness", "contextual_precision", "contextual_recall", "contextual_relevancy", "bias", "toxicity", "hallucination", "summarization", "g_eval"], "optional_metrics_status": {"summarization": true, "g_eval": true, "ragas": false}, "event": "Minimal DeepEval metrics service initialized", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:15:04.247003Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:15:04.341372Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:15:04.342368Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:15:04.342368Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T07:16:18.216314Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:16:18.275384Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:16:18.276924Z"}
+{"dataset_name": "Multi-Model Evaluation Dataset", "total_evaluations": 3, "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting dataset evaluation", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-23T07:16:18.306867Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting minimal batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:18.307868Z"}
+{"model_name": "claude_3_sonnet", "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting minimal DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:18.309868Z"}
+{"metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Running 3 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:18.310876Z"}
+{"error": "'str' object has no attribute 'value'", "event": "Metric 'g_eval' evaluation failed", "logger": "app.services.evaluation_service", "level": "error", "timestamp": "2025-07-23T07:16:20.051141Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\services\\evaluation_service.py\", line 288, in _evaluate_single_metric\n    await metric.a_measure(test_case)\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\deepeval\\metrics\\g_eval\\g_eval.py\", line 150, in a_measure\n    check_llm_test_case_params(test_case, self.evaluation_params, self)\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\deepeval\\metrics\\utils.py\", line 202, in check_llm_test_case_params\n    if getattr(test_case, param.value) is None:\n                          ^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'value'"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1, "threshold": 0.7, "passed": true, "duration_ms": 4446.34, "event": "DeepEval metric 'faithfulness' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:24.433814Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 7567.6, "event": "DeepEval metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:25.882043Z"}
+{"error": "'str' object has no attribute 'value'", "event": "Metric 'g_eval' failed", "logger": "app.services.evaluation_service", "level": "warning", "timestamp": "2025-07-23T07:16:25.883045Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 0.3333333333333333, "metrics_evaluated": 3, "duration_ms": 7574.180126190186, "event": "Minimal DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:25.885583Z"}
+{"model_name": "gpt_4", "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting minimal DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:25.887605Z"}
+{"metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Running 3 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:25.889601Z"}
+{"error": "'str' object has no attribute 'value'", "event": "Metric 'g_eval' evaluation failed", "logger": "app.services.evaluation_service", "level": "error", "timestamp": "2025-07-23T07:16:26.060434Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\services\\evaluation_service.py\", line 288, in _evaluate_single_metric\n    await metric.a_measure(test_case)\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\deepeval\\metrics\\g_eval\\g_eval.py\", line 150, in a_measure\n    check_llm_test_case_params(test_case, self.evaluation_params, self)\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\deepeval\\metrics\\utils.py\", line 202, in check_llm_test_case_params\n    if getattr(test_case, param.value) is None:\n                          ^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'value'"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 5740.42, "event": "DeepEval metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:31.631030Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 9897.18, "event": "DeepEval metric 'faithfulness' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:35.906623Z"}
+{"error": "'str' object has no attribute 'value'", "event": "Metric 'g_eval' failed", "logger": "app.services.evaluation_service", "level": "warning", "timestamp": "2025-07-23T07:16:35.908109Z"}
+{"model_name": "gpt_4", "overall_score": 0.6666666666666666, "metrics_evaluated": 3, "duration_ms": 10021.533012390137, "event": "Minimal DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:35.911215Z"}
+{"model_name": "lm_3", "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting minimal DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:35.913210Z"}
+{"metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Running 3 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:35.914131Z"}
+{"error": "'str' object has no attribute 'value'", "event": "Metric 'g_eval' evaluation failed", "logger": "app.services.evaluation_service", "level": "error", "timestamp": "2025-07-23T07:16:36.132643Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\services\\evaluation_service.py\", line 288, in _evaluate_single_metric\n    await metric.a_measure(test_case)\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\deepeval\\metrics\\g_eval\\g_eval.py\", line 150, in a_measure\n    check_llm_test_case_params(test_case, self.evaluation_params, self)\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\deepeval\\metrics\\utils.py\", line 202, in check_llm_test_case_params\n    if getattr(test_case, param.value) is None:\n                          ^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'value'"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 3596.31, "event": "DeepEval metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:39.511167Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 7316.12, "event": "DeepEval metric 'faithfulness' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:43.418465Z"}
+{"error": "'str' object has no attribute 'value'", "event": "Metric 'g_eval' failed", "logger": "app.services.evaluation_service", "level": "warning", "timestamp": "2025-07-23T07:16:43.419647Z"}
+{"model_name": "lm_3", "overall_score": 0.6666666666666666, "metrics_evaluated": 3, "duration_ms": 7508.755922317505, "event": "Minimal DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:43.422600Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "gpt_4", "duration_ms": 25115.768671035767, "event": "Minimal batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T07:16:43.423636Z"}
+{"error": "1 validation error for BatchEvaluationResult\ndataset_name\n  Field required [type=missing, input_value={'input': 'What is the ca...ithfulness', 'g_eval']}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing", "event": "Failed to evaluate dataset", "logger": "app.routes.evaluation", "level": "error", "timestamp": "2025-07-23T07:16:43.433542Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\routes\\evaluation.py\", line 128, in evaluate_dataset_structured\n    batch_result = await evaluation_service.evaluate_batch(\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Evaluation-Backend\\app\\services\\evaluation_service.py\", line 365, in evaluate_batch\n    return BatchEvaluationResult(\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 253, in __init__\n    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npydantic_core._pydantic_core.ValidationError: 1 validation error for BatchEvaluationResult\ndataset_name\n  Field required [type=missing, input_value={'input': 'What is the ca...ithfulness', 'g_eval']}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing"}
+{"status_code": 500, "duration_ms": 25229.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T07:16:43.445189Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:35:46.208591Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:35:46.300585Z"}
