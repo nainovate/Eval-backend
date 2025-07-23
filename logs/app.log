@@ -4472,3 +4472,60 @@ HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 {"status_code": 500, "duration_ms": 25229.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T07:16:43.445189Z"}
 {"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:35:46.208591Z"}
 {"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:35:46.300585Z"}
+{"version": "1.0.0", "service_name": "claude-evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:59:51.284103Z"}
+{"total_metrics": 10, "available_metrics": ["answer_relevancy", "faithfulness", "contextual_precision", "contextual_recall", "contextual_relevancy", "bias", "toxicity", "hallucination", "summarization", "g_eval"], "optional_metrics_status": {"summarization": true, "g_eval": true, "ragas": false}, "event": "Minimal DeepEval metrics service initialized", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:59:51.285106Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:59:51.396339Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T07:59:51.397339Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T07:59:51.397339Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T08:00:29.323933Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T08:00:29.366094Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T08:00:29.367603Z"}
+{"dataset_name": "Multi-Model Evaluation Dataset", "total_evaluations": 3, "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting dataset evaluation", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-23T08:00:29.378624Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting working batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:29.381622Z"}
+{"model_name": "claude_3_sonnet", "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:29.387034Z"}
+{"metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Running 3 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:29.387034Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1, "threshold": 0.7, "passed": true, "duration_ms": 2132.6, "event": "DeepEval metric 'faithfulness' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:32.253873Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 3882.14, "event": "DeepEval metric 'g_eval' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:34.053116Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 6110.03, "event": "DeepEval metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:35.498581Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 0.3333333333333333, "metrics_evaluated": 3, "duration_ms": 6114.077568054199, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:35.502113Z"}
+{"model_name": "gpt_4", "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:35.503111Z"}
+{"metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Running 3 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:35.503111Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 2812.85, "event": "DeepEval metric 'g_eval' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:38.378826Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 3607.97, "event": "DeepEval metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:39.112080Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 5416.22, "event": "DeepEval metric 'faithfulness' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:40.961501Z"}
+{"model_name": "gpt_4", "overall_score": 1.0, "metrics_evaluated": 3, "duration_ms": 5459.390640258789, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:40.962502Z"}
+{"model_name": "lm_3", "selected_metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:40.964499Z"}
+{"metrics": ["answer_relevancy", "faithfulness", "g_eval"], "event": "Running 3 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:40.965523Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 2269.53, "event": "DeepEval metric 'g_eval' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:43.313232Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 5505.15, "event": "DeepEval metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:46.471683Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 6668.69, "event": "DeepEval metric 'faithfulness' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:47.689649Z"}
+{"model_name": "lm_3", "overall_score": 1.0, "metrics_evaluated": 3, "duration_ms": 6726.1598110198975, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:47.690659Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "gpt_4", "duration_ms": 18310.03451347351, "event": "Working batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-23T08:00:47.691656Z"}
+{"error": "'DatasetEvaluation' object has no attribute 'test_id'", "event": "Failed to evaluate dataset", "logger": "app.routes.evaluation", "level": "error", "timestamp": "2025-07-23T08:00:47.816880Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\routes\\evaluation.py\", line 176, in evaluate_dataset_structured\n    \"test_id\": eval_item.test_id,\n               ^^^^^^^^^^^^^^^^^\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 991, in __getattr__\n    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')\nAttributeError: 'DatasetEvaluation' object has no attribute 'test_id'"}
+{"status_code": 500, "duration_ms": 18498.44, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-23T08:00:47.822374Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-23T08:14:42.805983Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-23T08:14:42.862899Z"}
