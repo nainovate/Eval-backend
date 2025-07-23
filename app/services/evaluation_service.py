@@ -62,8 +62,8 @@ logger = structlog.get_logger()
 tracer = get_tracer(__name__)
 
 
-class WorkingDeepEvalService:
-    """Working service with proper variable scope handling."""
+class EvaluationService:
+    """Fixed evaluation service with all required methods."""
     
     def __init__(self):
         """Initialize metrics with proper scope management."""
@@ -177,17 +177,22 @@ class WorkingDeepEvalService:
             )
             
             try:
-                # Create test case with proper expected_output handling
+                # Create test case with proper expected_output handling and retrieval_context
+                retrieval_context = []
+                if request.expected_output:
+                    retrieval_context.append(request.expected_output)
+                retrieval_context.append(request.prompt)
+                
                 test_case = LLMTestCase(
                     input=request.prompt,
                     actual_output=request.response,
                     expected_output=request.expected_output or "No expected output provided",
                     context=[request.prompt, request.expected_output] if request.expected_output else [request.prompt],
-                    retrieval_context=[request.prompt, request.expected_output] if request.expected_output else [request.prompt]
+                    retrieval_context=retrieval_context
                 )
                 
                 # Run evaluation with specified metrics
-                scores = await self._run_metrics(test_case, selected_metrics or ["answer_relevancy", "faithfulness", "bias"])
+                scores = await self._run_metrics(test_case, selected_metrics)
                 
                 # Calculate overall score
                 overall_score = sum(scores.values()) / len(scores) if scores else 0.0
@@ -263,7 +268,7 @@ class WorkingDeepEvalService:
         if not valid_metrics:
             logger.warning("No valid metrics found, using defaults")
             # Use only core metrics that are guaranteed to work
-            default_metrics = ["answer_relevancy", "faithfulness", "bias"]
+            default_metrics = ["answer_relevancy", "bias", "toxicity"]
             for metric in default_metrics:
                 if metric in self.available_metrics:
                     valid_metrics[metric] = self.available_metrics[metric]
@@ -390,4 +395,4 @@ class WorkingDeepEvalService:
 
 
 # Create global service instance
-evaluation_service = WorkingDeepEvalService()
+evaluation_service = EvaluationService()

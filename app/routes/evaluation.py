@@ -1,4 +1,4 @@
-"""Simple evaluation API endpoints - direct metric handling."""
+"""Simple evaluation API endpoints - fixed with proper test_id handling."""
 from typing import List, Dict, Any
 from fastapi import APIRouter, Depends, HTTPException, Request
 from motor.motor_asyncio import AsyncIOMotorDatabase
@@ -40,12 +40,12 @@ async def get_available_metrics():
             metric_info = evaluation_service.get_metric_info()
             
             span.set_attribute("total_metrics", metric_info["total_count"])
-            span.set_attribute("ragas_available", metric_info["ragas_available"])
+            span.set_attribute("optional_metrics_status", str(metric_info["optional_metrics_status"]))
             
             logger.info(
                 "Retrieved available metrics",
                 total_metrics=metric_info["total_count"],
-                ragas_available=metric_info["ragas_available"]
+                optional_metrics_status=metric_info["optional_metrics_status"]
             )
             
             return {
@@ -53,12 +53,12 @@ async def get_available_metrics():
                 "data": {
                     "available_metrics": metric_info["available_metrics"],
                     "total_count": metric_info["total_count"],
-                    "ragas_available": metric_info["ragas_available"],
+                    "optional_metrics_status": metric_info["optional_metrics_status"],
                     "metric_details": metric_info["metric_details"],
                     "usage_example": {
                         "basic": ["answer_relevancy", "faithfulness", "bias"],
                         "comprehensive": ["answer_relevancy", "faithfulness", "contextual_precision", "bias", "toxicity"],
-                        "with_ragas": ["answer_relevancy", "faithfulness", "ragas"] if metric_info["ragas_available"] else "ragas not available"
+                        "with_geval": ["answer_relevancy", "faithfulness", "g_eval"] if metric_info["optional_metrics_status"]["g_eval"] else "g_eval not available"
                     }
                 }
             }
@@ -172,8 +172,11 @@ async def evaluate_dataset_structured(
                         "evaluation_duration_ms": model_result.evaluation_duration_ms
                     })
                 
+                # Fixed: Generate test_id instead of accessing eval_item.test_id
+                test_id = getattr(eval_item, 'test_id', f"test_{i+1:03d}")
+                
                 test_results.append({
-                    "test_id": eval_item.test_id,
+                    "test_id": test_id,
                     "input": eval_item.input[:100] + "..." if len(eval_item.input) > 100 else eval_item.input,
                     "expected_output": eval_item.expected_output,
                     "category": eval_item.category,
@@ -184,7 +187,7 @@ async def evaluate_dataset_structured(
                 
                 logger.info(
                     f"Completed evaluation {i+1}/{len(dataset.evaluations)}",
-                    test_id=eval_item.test_id,
+                    test_id=test_id,
                     evaluation_id=str(batch_result.id)
                 )
             
