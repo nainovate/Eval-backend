@@ -1270,7 +1270,10 @@ class HttpOptions(_common.BaseModel):
   )
   extra_body: Optional[dict[str, Any]] = Field(
       default=None,
-      description="""Extra parameters to add to the request body.""",
+      description="""Extra parameters to add to the request body.
+      The structure must match the backend API's request structure.
+      - VertexAI backend API docs: https://cloud.google.com/vertex-ai/docs/reference/rest
+      - GeminiAPI backend API docs: https://ai.google.dev/api/rest""",
   )
   retry_options: Optional[HttpRetryOptions] = Field(
       default=None, description="""HTTP retry options for the request."""
@@ -1299,7 +1302,10 @@ class HttpOptionsDict(TypedDict, total=False):
   """Args passed to the async HTTP client."""
 
   extra_body: Optional[dict[str, Any]]
-  """Extra parameters to add to the request body."""
+  """Extra parameters to add to the request body.
+      The structure must match the backend API's request structure.
+      - VertexAI backend API docs: https://cloud.google.com/vertex-ai/docs/reference/rest
+      - GeminiAPI backend API docs: https://ai.google.dev/api/rest"""
 
   retry_options: Optional[HttpRetryOptionsDict]
   """HTTP retry options for the request."""
@@ -5714,6 +5720,12 @@ class GenerateImagesConfig(_common.BaseModel):
       description="""Whether to add a watermark to the generated images.
       """,
   )
+  image_size: Optional[str] = Field(
+      default=None,
+      description="""The size of the largest dimension of the generated image.
+      Supported sizes are 1K and 2K (not supported for Imagen 3 models).
+      """,
+  )
   enhance_prompt: Optional[bool] = Field(
       default=None,
       description="""Whether to use the prompt rewriting logic.
@@ -5788,6 +5800,11 @@ class GenerateImagesConfigDict(TypedDict, total=False):
 
   add_watermark: Optional[bool]
   """Whether to add a watermark to the generated images.
+      """
+
+  image_size: Optional[str]
+  """The size of the largest dimension of the generated image.
+      Supported sizes are 1K and 2K (not supported for Imagen 3 models).
       """
 
   enhance_prompt: Optional[bool]
@@ -6967,11 +6984,17 @@ _ListModelsParametersOrDict = Union[
 
 class ListModelsResponse(_common.BaseModel):
 
+  sdk_http_response: Optional[HttpResponse] = Field(
+      default=None, description="""Used to retain the full HTTP response."""
+  )
   next_page_token: Optional[str] = Field(default=None, description="""""")
   models: Optional[list[Model]] = Field(default=None, description="""""")
 
 
 class ListModelsResponseDict(TypedDict, total=False):
+
+  sdk_http_response: Optional[HttpResponseDict]
+  """Used to retain the full HTTP response."""
 
   next_page_token: Optional[str]
   """"""
@@ -8976,6 +8999,9 @@ _ListTuningJobsParametersOrDict = Union[
 class ListTuningJobsResponse(_common.BaseModel):
   """Response for the list tuning jobs method."""
 
+  sdk_http_response: Optional[HttpResponse] = Field(
+      default=None, description="""Used to retain the full HTTP response."""
+  )
   next_page_token: Optional[str] = Field(
       default=None,
       description="""A token to retrieve the next page of results. Pass to ListTuningJobsRequest.page_token to obtain that page.""",
@@ -8987,6 +9013,9 @@ class ListTuningJobsResponse(_common.BaseModel):
 
 class ListTuningJobsResponseDict(TypedDict, total=False):
   """Response for the list tuning jobs method."""
+
+  sdk_http_response: Optional[HttpResponseDict]
+  """Used to retain the full HTTP response."""
 
   next_page_token: Optional[str]
   """A token to retrieve the next page of results. Pass to ListTuningJobsRequest.page_token to obtain that page."""
@@ -9710,6 +9739,9 @@ _ListCachedContentsParametersOrDict = Union[
 
 class ListCachedContentsResponse(_common.BaseModel):
 
+  sdk_http_response: Optional[HttpResponse] = Field(
+      default=None, description="""Used to retain the full HTTP response."""
+  )
   next_page_token: Optional[str] = Field(default=None, description="""""")
   cached_contents: Optional[list[CachedContent]] = Field(
       default=None,
@@ -9719,6 +9751,9 @@ class ListCachedContentsResponse(_common.BaseModel):
 
 
 class ListCachedContentsResponseDict(TypedDict, total=False):
+
+  sdk_http_response: Optional[HttpResponseDict]
+  """Used to retain the full HTTP response."""
 
   next_page_token: Optional[str]
   """"""
@@ -9783,6 +9818,9 @@ _ListFilesParametersOrDict = Union[
 class ListFilesResponse(_common.BaseModel):
   """Response for the list files method."""
 
+  sdk_http_response: Optional[HttpResponse] = Field(
+      default=None, description="""Used to retain the full HTTP response."""
+  )
   next_page_token: Optional[str] = Field(
       default=None, description="""A token to retrieve next page of results."""
   )
@@ -9793,6 +9831,9 @@ class ListFilesResponse(_common.BaseModel):
 
 class ListFilesResponseDict(TypedDict, total=False):
   """Response for the list files method."""
+
+  sdk_http_response: Optional[HttpResponseDict]
+  """Used to retain the full HTTP response."""
 
   next_page_token: Optional[str]
   """A token to retrieve next page of results."""
@@ -10584,12 +10625,18 @@ _ListBatchJobsParametersOrDict = Union[
 class ListBatchJobsResponse(_common.BaseModel):
   """Config for batches.list return value."""
 
+  sdk_http_response: Optional[HttpResponse] = Field(
+      default=None, description="""Used to retain the full HTTP response."""
+  )
   next_page_token: Optional[str] = Field(default=None, description="""""")
   batch_jobs: Optional[list[BatchJob]] = Field(default=None, description="""""")
 
 
 class ListBatchJobsResponseDict(TypedDict, total=False):
   """Config for batches.list return value."""
+
+  sdk_http_response: Optional[HttpResponseDict]
+  """Used to retain the full HTTP response."""
 
   next_page_token: Optional[str]
   """"""

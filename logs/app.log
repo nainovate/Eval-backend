@@ -4168,3 +4168,1184 @@
 {"error": "localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 687f7386b74b9adf5677c374, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>", "event": "Failed to start application", "level": "error", "timestamp": "2025-07-22T11:18:35.814690Z"}
 {"event": "Shutting down application", "level": "info", "timestamp": "2025-07-22T11:18:35.815685Z"}
 {"event": "Disconnected from MongoDB", "level": "info", "timestamp": "2025-07-22T11:18:35.815685Z"}
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-24T06:04:17.424501Z"}
+{"total_metrics": 10, "available_metrics": ["answer_relevancy", "faithfulness", "contextual_precision", "contextual_recall", "contextual_relevancy", "bias", "toxicity", "hallucination", "summarization", "g_eval"], "optional_metrics_status": {"summarization": true, "g_eval": true, "ragas": false}, "event": "Minimal DeepEval metrics service initialized", "logger": "app.main", "level": "info", "timestamp": "2025-07-24T06:04:17.426026Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:04:17.556431Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:04:17.557484Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-24T06:04:17.557484Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:08:47.601063Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:08:47.716798Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:08:47.717667Z"}
+{"dataset_name": "Multi-Model Evaluation Dataset", "total_evaluations": 3, "selected_metrics": ["summarization"], "event": "Starting dataset evaluation", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-24T06:08:47.756131Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["summarization"], "event": "Starting working batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:08:47.759642Z"}
+{"model_name": "claude_3_sonnet", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:08:47.760641Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:08:47.763815Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0, "threshold": 0.7, "passed": false, "duration_ms": 8156.41, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:08:55.922256Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 0.0, "metrics_evaluated": 1, "duration_ms": 8161.614894866943, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:08:55.924257Z"}
+{"model_name": "gpt_4", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:08:55.925698Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:08:55.925698Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.6666666666666666, "threshold": 0.7, "passed": false, "duration_ms": 6247.83, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:02.175519Z"}
+{"model_name": "gpt_4", "overall_score": 0.6666666666666666, "metrics_evaluated": 1, "duration_ms": 6249.821424484253, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:02.176521Z"}
+{"model_name": "lm_3", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:02.177035Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:02.177035Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.6666666666666666, "threshold": 0.7, "passed": false, "duration_ms": 3586.3, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:05.763339Z"}
+{"model_name": "lm_3", "overall_score": 0.6666666666666666, "metrics_evaluated": 1, "duration_ms": 3587.3217582702637, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:05.764357Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "gpt_4", "duration_ms": 18007.625341415405, "event": "Working batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:05.765354Z"}
+{"test_id": "test_001", "evaluation_id": "6881ce013585733ade30859f", "event": "Completed evaluation 1/3", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-24T06:09:05.779634Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["summarization"], "event": "Starting working batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:05.780648Z"}
+{"model_name": "claude_3_sonnet", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:05.781651Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:05.782650Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 11275.65, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:17.059309Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 0.0, "metrics_evaluated": 1, "duration_ms": 11277.843236923218, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:17.059494Z"}
+{"model_name": "gpt_4", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:17.060483Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:17.060483Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0, "threshold": 0.7, "passed": false, "duration_ms": 14263.41, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:31.325403Z"}
+{"model_name": "gpt_4", "overall_score": 0.0, "metrics_evaluated": 1, "duration_ms": 14267.926692962646, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:31.328410Z"}
+{"model_name": "lm_3", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:31.329948Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:31.330050Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 8096.62, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:39.426668Z"}
+{"model_name": "lm_3", "overall_score": 0.0, "metrics_evaluated": 1, "duration_ms": 8117.449522018433, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:39.447398Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "claude_3_sonnet", "duration_ms": 33667.277336120605, "event": "Working batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:39.447926Z"}
+{"test_id": "test_002", "evaluation_id": "6881ce233585733ade3085a3", "event": "Completed evaluation 2/3", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-24T06:09:39.459994Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "selected_metrics": ["summarization"], "event": "Starting working batch evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:39.462196Z"}
+{"model_name": "claude_3_sonnet", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:39.462196Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:39.463291Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 4061.98, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:43.526250Z"}
+{"model_name": "claude_3_sonnet", "overall_score": 0.0, "metrics_evaluated": 1, "duration_ms": 4064.054489135742, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:43.526250Z"}
+{"model_name": "gpt_4", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:43.527256Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:43.527256Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0, "threshold": 0.7, "passed": false, "duration_ms": 3487.06, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:47.014318Z"}
+{"model_name": "gpt_4", "overall_score": 0.0, "metrics_evaluated": 1, "duration_ms": 3487.95223236084, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:47.015208Z"}
+{"model_name": "lm_3", "selected_metrics": ["summarization"], "event": "Starting working DeepEval evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:47.016207Z"}
+{"metrics": ["summarization"], "event": "Running 1 DeepEval metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:47.017271Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 3829.55, "event": "DeepEval metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:50.847794Z"}
+{"model_name": "lm_3", "overall_score": 0.0, "metrics_evaluated": 1, "duration_ms": 3862.485408782959, "event": "Working DeepEval evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:50.878692Z"}
+{"models": ["claude_3_sonnet", "gpt_4", "lm_3"], "best_model": "claude_3_sonnet", "duration_ms": 11445.942163467407, "event": "Working batch evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-24T06:09:50.908138Z"}
+{"test_id": "test_003", "evaluation_id": "6881ce2e3585733ade3085a7", "event": "Completed evaluation 3/3", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-24T06:09:50.912666Z"}
+{"dataset_name": "Multi-Model Evaluation Dataset", "total_evaluations": 3, "best_model": "gpt_4", "metrics_used": ["summarization"], "event": "Dataset evaluation completed", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-24T06:09:50.922450Z"}
+{"status_code": 200, "duration_ms": 63346.2, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:09:50.937598Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:43.158065Z"}
+{"status_code": 200, "duration_ms": 51.67, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:43.206633Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:48.073460Z"}
+{"status_code": 200, "duration_ms": 15.26, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:48.088206Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:53.074063Z"}
+{"status_code": 200, "duration_ms": 18.26, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:53.093331Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:58.073757Z"}
+{"status_code": 200, "duration_ms": 12.17, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:13:58.085931Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:03.071702Z"}
+{"status_code": 200, "duration_ms": 9.09, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:03.080287Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:08.069959Z"}
+{"status_code": 200, "duration_ms": 19.68, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:08.089635Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:08.296131Z"}
+{"status_code": 307, "duration_ms": 2.13, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:08.298261Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:08.300916Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:14:08.384294Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:14:08.384294Z"}
+{"status_code": 200, "duration_ms": 95.01, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:08.395925Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:13.073823Z"}
+{"status_code": 200, "duration_ms": 7.84, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:13.081661Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:18.070707Z"}
+{"status_code": 200, "duration_ms": 10.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:18.081118Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:23.074162Z"}
+{"status_code": 200, "duration_ms": 8.11, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:23.081270Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:28.073758Z"}
+{"status_code": 200, "duration_ms": 7.17, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:28.080765Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:33.068784Z"}
+{"status_code": 200, "duration_ms": 10.16, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:33.078948Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:38.070809Z"}
+{"status_code": 200, "duration_ms": 7.74, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:38.078549Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:38.295379Z"}
+{"status_code": 307, "duration_ms": 0.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:38.295902Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:38.298012Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:14:38.309831Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:14:38.310824Z"}
+{"status_code": 200, "duration_ms": 13.83, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:38.311846Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:43.071052Z"}
+{"status_code": 200, "duration_ms": 7.8, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:43.078849Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:48.069555Z"}
+{"status_code": 200, "duration_ms": 7.26, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:48.076818Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:53.069888Z"}
+{"status_code": 200, "duration_ms": 8.08, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:53.077433Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:58.070304Z"}
+{"status_code": 200, "duration_ms": 8.11, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:14:58.078415Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:03.066406Z"}
+{"status_code": 200, "duration_ms": 8.63, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:03.075036Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:08.069887Z"}
+{"status_code": 200, "duration_ms": 7.75, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:08.077637Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:08.294559Z"}
+{"status_code": 307, "duration_ms": 1.03, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:08.295592Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:08.300546Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:15:08.336951Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:15:08.336951Z"}
+{"status_code": 200, "duration_ms": 39.91, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:08.340455Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:13.071234Z"}
+{"status_code": 200, "duration_ms": 9.09, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:13.080323Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:18.066956Z"}
+{"status_code": 200, "duration_ms": 9.94, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:18.076895Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:23.067547Z"}
+{"status_code": 200, "duration_ms": 8.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:23.075617Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:28.071649Z"}
+{"status_code": 200, "duration_ms": 8.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:28.080171Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:33.065948Z"}
+{"status_code": 200, "duration_ms": 12.98, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:33.078925Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:38.068547Z"}
+{"status_code": 200, "duration_ms": 8.42, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:38.076971Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:38.300617Z"}
+{"status_code": 307, "duration_ms": 0.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:38.301138Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:38.303779Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:15:38.318940Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:15:38.318940Z"}
+{"status_code": 200, "duration_ms": 16.16, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:38.319938Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:43.066340Z"}
+{"status_code": 200, "duration_ms": 8.6, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:43.074943Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:48.066042Z"}
+{"status_code": 200, "duration_ms": 9.99, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:48.075474Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:53.066010Z"}
+{"status_code": 200, "duration_ms": 8.01, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:53.074017Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:58.068174Z"}
+{"status_code": 200, "duration_ms": 12.34, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:15:58.080519Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:03.063662Z"}
+{"status_code": 200, "duration_ms": 11.57, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:03.075235Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:08.066437Z"}
+{"status_code": 200, "duration_ms": 8.91, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:08.075265Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:08.289357Z"}
+{"status_code": 307, "duration_ms": 1.16, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:08.290519Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:08.293796Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:16:08.332847Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:16:08.332847Z"}
+{"status_code": 200, "duration_ms": 41.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:08.334940Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:13.083299Z"}
+{"status_code": 200, "duration_ms": 8.83, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:13.092082Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:18.062569Z"}
+{"status_code": 200, "duration_ms": 8.11, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:18.070675Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:23.066341Z"}
+{"status_code": 200, "duration_ms": 8.95, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:23.075296Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:28.064954Z"}
+{"status_code": 200, "duration_ms": 7.7, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:28.072651Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:33.063504Z"}
+{"status_code": 200, "duration_ms": 10.15, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:33.073055Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:38.065468Z"}
+{"status_code": 200, "duration_ms": 9.32, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:38.074788Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:38.292533Z"}
+{"status_code": 307, "duration_ms": 0.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:38.293062Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:38.295687Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:16:38.338449Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:16:38.338449Z"}
+{"status_code": 200, "duration_ms": 44.42, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:38.340103Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:43.062970Z"}
+{"status_code": 200, "duration_ms": 7.01, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:43.069978Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:48.060286Z"}
+{"status_code": 200, "duration_ms": 6.95, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:48.067240Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:53.081754Z"}
+{"status_code": 200, "duration_ms": 7.5, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:53.089254Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:58.062071Z"}
+{"status_code": 200, "duration_ms": 18.49, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:16:58.081537Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:03.060949Z"}
+{"status_code": 200, "duration_ms": 8.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:03.068414Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:08.061399Z"}
+{"status_code": 200, "duration_ms": 7.19, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:08.068590Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:08.286201Z"}
+{"status_code": 307, "duration_ms": 1.04, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:08.287240Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:08.289986Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:17:08.306924Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:17:08.307844Z"}
+{"status_code": 200, "duration_ms": 18.83, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:08.308814Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:13.061374Z"}
+{"status_code": 200, "duration_ms": 7.71, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:13.069083Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:18.058280Z"}
+{"status_code": 200, "duration_ms": 7.78, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:18.066061Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:23.059475Z"}
+{"status_code": 200, "duration_ms": 7.42, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:23.066894Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:28.060245Z"}
+{"status_code": 200, "duration_ms": 8.11, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:28.068360Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:33.056731Z"}
+{"status_code": 200, "duration_ms": 8.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:33.064780Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:38.059414Z"}
+{"status_code": 200, "duration_ms": 8.65, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:38.068067Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:38.286145Z"}
+{"status_code": 307, "duration_ms": 1.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:38.287285Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:38.291738Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:17:38.311644Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:17:38.311644Z"}
+{"status_code": 200, "duration_ms": 22.25, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:38.314335Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:43.060485Z"}
+{"status_code": 200, "duration_ms": 10.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:43.070626Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:48.056873Z"}
+{"status_code": 200, "duration_ms": 14.59, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:48.070933Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:53.058949Z"}
+{"status_code": 200, "duration_ms": 13.77, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:53.072188Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:58.056784Z"}
+{"status_code": 200, "duration_ms": 14.63, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:17:58.070854Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:03.055668Z"}
+{"status_code": 200, "duration_ms": 10.74, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:03.066413Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:08.069647Z"}
+{"status_code": 200, "duration_ms": 11.44, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:08.081587Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:08.280605Z"}
+{"status_code": 307, "duration_ms": 1.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:08.281746Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:08.284352Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:18:08.296209Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:18:08.296209Z"}
+{"status_code": 200, "duration_ms": 14.86, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:08.299210Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:13.058676Z"}
+{"status_code": 200, "duration_ms": 12.81, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:13.070964Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:18.055606Z"}
+{"status_code": 200, "duration_ms": 10.86, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:18.067468Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:23.069526Z"}
+{"status_code": 200, "duration_ms": 8.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:23.078052Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:28.055915Z"}
+{"status_code": 200, "duration_ms": 8.24, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:28.064152Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:33.078014Z"}
+{"status_code": 200, "duration_ms": 8.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:33.086081Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:38.056590Z"}
+{"status_code": 200, "duration_ms": 10.11, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:38.066697Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:38.288776Z"}
+{"status_code": 307, "duration_ms": 1.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:38.289850Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:38.293097Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:18:38.339562Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:18:38.339562Z"}
+{"status_code": 200, "duration_ms": 47.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:38.340503Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:43.055167Z"}
+{"status_code": 200, "duration_ms": 11.59, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:43.066754Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:48.053584Z"}
+{"status_code": 200, "duration_ms": 9.2, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:48.062786Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:53.054826Z"}
+{"status_code": 200, "duration_ms": 12.59, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:53.067414Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:58.055071Z"}
+{"status_code": 200, "duration_ms": 9.99, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:18:58.064892Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:03.064127Z"}
+{"status_code": 200, "duration_ms": 11.15, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:03.075275Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:08.055484Z"}
+{"status_code": 200, "duration_ms": 13.23, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:08.068716Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:08.287861Z"}
+{"status_code": 307, "duration_ms": 1.08, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:08.288939Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:08.291028Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:19:08.304961Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:19:08.304961Z"}
+{"status_code": 200, "duration_ms": 14.93, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:08.305960Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:13.063753Z"}
+{"status_code": 200, "duration_ms": 11.7, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:13.075449Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:18.066904Z"}
+{"status_code": 200, "duration_ms": 17.31, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:18.083659Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:23.053583Z"}
+{"status_code": 200, "duration_ms": 8.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:23.061109Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:28.052542Z"}
+{"status_code": 200, "duration_ms": 8.17, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:28.060711Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:33.056573Z"}
+{"status_code": 200, "duration_ms": 6.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:33.063616Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:38.055685Z"}
+{"status_code": 200, "duration_ms": 7.79, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:38.063391Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:38.285316Z"}
+{"status_code": 307, "duration_ms": 0.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:38.285836Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:38.287935Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:19:38.318133Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:19:38.318133Z"}
+{"status_code": 200, "duration_ms": 31.18, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:38.319115Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:43.051928Z"}
+{"status_code": 200, "duration_ms": 8.82, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:43.060747Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:48.060332Z"}
+{"status_code": 200, "duration_ms": 13.47, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:48.073802Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:53.064079Z"}
+{"status_code": 200, "duration_ms": 10.03, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:53.074110Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:58.050332Z"}
+{"status_code": 200, "duration_ms": 8.46, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:19:58.058906Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:03.050216Z"}
+{"status_code": 200, "duration_ms": 15.08, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:03.065297Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:08.050097Z"}
+{"status_code": 200, "duration_ms": 12.23, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:08.062329Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:08.275439Z"}
+{"status_code": 307, "duration_ms": 1.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:08.275964Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:08.278615Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:20:08.317784Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:20:08.317784Z"}
+{"status_code": 200, "duration_ms": 40.17, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:08.318785Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:13.049178Z"}
+{"status_code": 200, "duration_ms": 11.11, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:13.060293Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:18.047987Z"}
+{"status_code": 200, "duration_ms": 10.96, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:18.058943Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:23.051201Z"}
+{"status_code": 200, "duration_ms": 12.34, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:23.063537Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:28.060191Z"}
+{"status_code": 200, "duration_ms": 11.4, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:28.071588Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:33.047133Z"}
+{"status_code": 200, "duration_ms": 12.96, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:33.061155Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:38.053235Z"}
+{"status_code": 200, "duration_ms": 9.85, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:38.063090Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:38.271662Z"}
+{"status_code": 307, "duration_ms": 0.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:38.272174Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:38.274332Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:20:38.288282Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:20:38.288282Z"}
+{"status_code": 200, "duration_ms": 15.95, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:38.290285Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:43.052547Z"}
+{"status_code": 200, "duration_ms": 10.49, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:43.063037Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:48.045936Z"}
+{"status_code": 200, "duration_ms": 12.87, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:48.058808Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:53.047363Z"}
+{"status_code": 200, "duration_ms": 9.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:53.056983Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:58.049330Z"}
+{"status_code": 200, "duration_ms": 7.8, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:20:58.057129Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:03.044518Z"}
+{"status_code": 200, "duration_ms": 10.17, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:03.054687Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:08.044749Z"}
+{"status_code": 200, "duration_ms": 9.21, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:08.053959Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:08.271098Z"}
+{"status_code": 307, "duration_ms": 1.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:08.272148Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:08.275964Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:21:08.314329Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:21:08.315339Z"}
+{"status_code": 200, "duration_ms": 40.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:08.316340Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:13.045448Z"}
+{"status_code": 200, "duration_ms": 8.13, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:13.053576Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:18.055272Z"}
+{"status_code": 200, "duration_ms": 7.76, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:18.063035Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:23.057229Z"}
+{"status_code": 200, "duration_ms": 8.6, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:23.065829Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:28.046256Z"}
+{"status_code": 200, "duration_ms": 11.84, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:28.058096Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:33.043045Z"}
+{"status_code": 200, "duration_ms": 7.99, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:33.051031Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:38.045570Z"}
+{"status_code": 200, "duration_ms": 12.74, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:38.057791Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:38.267529Z"}
+{"status_code": 307, "duration_ms": 1.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:38.268597Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:38.271251Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:21:38.284867Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:21:38.284867Z"}
+{"status_code": 200, "duration_ms": 14.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:38.285869Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:43.043191Z"}
+{"status_code": 200, "duration_ms": 10.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:43.053709Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:48.042544Z"}
+{"status_code": 200, "duration_ms": 8.5, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:48.051048Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:53.045323Z"}
+{"status_code": 200, "duration_ms": 14.46, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:53.058850Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:58.041114Z"}
+{"status_code": 200, "duration_ms": 13.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:21:58.054494Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:03.040667Z"}
+{"status_code": 200, "duration_ms": 9.31, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:03.049975Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:08.042797Z"}
+{"status_code": 200, "duration_ms": 10.39, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:08.052647Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:08.269059Z"}
+{"status_code": 307, "duration_ms": 0.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:08.270135Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:08.272256Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:22:08.306161Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:22:08.307162Z"}
+{"status_code": 200, "duration_ms": 35.98, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:08.308239Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:13.043754Z"}
+{"status_code": 200, "duration_ms": 10.75, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:13.055030Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:18.039933Z"}
+{"status_code": 200, "duration_ms": 12.87, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:18.052799Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:23.041677Z"}
+{"status_code": 200, "duration_ms": 13.57, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:23.055246Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:28.042209Z"}
+{"status_code": 200, "duration_ms": 12.1, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:28.054309Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:33.039601Z"}
+{"status_code": 200, "duration_ms": 13.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:33.052668Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:38.041602Z"}
+{"status_code": 200, "duration_ms": 15.31, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:38.056911Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:38.266260Z"}
+{"status_code": 307, "duration_ms": 1.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:38.267319Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:38.268935Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:22:38.280169Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:22:38.280169Z"}
+{"status_code": 200, "duration_ms": 13.24, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:38.282178Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:43.040090Z"}
+{"status_code": 200, "duration_ms": 9.57, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:43.049659Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:48.037587Z"}
+{"status_code": 200, "duration_ms": 9.83, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:48.046884Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:53.046253Z"}
+{"status_code": 200, "duration_ms": 11.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:53.058223Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:58.039586Z"}
+{"status_code": 200, "duration_ms": 11.84, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:22:58.051427Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:03.036641Z"}
+{"status_code": 200, "duration_ms": 10.4, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:03.047041Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:08.038858Z"}
+{"status_code": 200, "duration_ms": 8.98, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:08.047841Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:08.263877Z"}
+{"status_code": 307, "duration_ms": 0.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:08.264405Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:08.267048Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:23:08.280143Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:23:08.280143Z"}
+{"status_code": 200, "duration_ms": 14.1, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:08.281145Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:13.038352Z"}
+{"status_code": 200, "duration_ms": 9.69, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:13.048046Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:18.035712Z"}
+{"status_code": 200, "duration_ms": 12.48, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:18.048192Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:23.039863Z"}
+{"status_code": 200, "duration_ms": 10.15, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:23.050018Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:28.038024Z"}
+{"status_code": 200, "duration_ms": 9.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:28.047532Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:33.037667Z"}
+{"status_code": 200, "duration_ms": 14.3, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:33.051971Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:38.039031Z"}
+{"status_code": 200, "duration_ms": 13.19, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:38.051609Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:38.258695Z"}
+{"status_code": 307, "duration_ms": 0.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:38.259243Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:38.261889Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:23:38.277795Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:23:38.277795Z"}
+{"status_code": 200, "duration_ms": 16.91, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:38.278798Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:43.037073Z"}
+{"status_code": 200, "duration_ms": 9.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:43.047041Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:48.034514Z"}
+{"status_code": 200, "duration_ms": 32.12, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:48.066636Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:53.035578Z"}
+{"status_code": 200, "duration_ms": 17.91, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:53.053487Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:58.035166Z"}
+{"status_code": 200, "duration_ms": 11.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:23:58.046713Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:03.033293Z"}
+{"status_code": 200, "duration_ms": 9.45, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:03.042740Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:08.036401Z"}
+{"status_code": 200, "duration_ms": 15.73, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:08.051574Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:08.265749Z"}
+{"status_code": 307, "duration_ms": 1.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:08.266276Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:08.269525Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:24:08.302244Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:24:08.303238Z"}
+{"status_code": 200, "duration_ms": 38.25, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:08.307777Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:13.046524Z"}
+{"status_code": 200, "duration_ms": 15.01, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:13.061536Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:18.032304Z"}
+{"status_code": 200, "duration_ms": 12.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:18.044370Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:23.036854Z"}
+{"status_code": 200, "duration_ms": 8.99, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:23.045845Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:28.036229Z"}
+{"status_code": 200, "duration_ms": 11.25, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:28.047483Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:33.032387Z"}
+{"status_code": 200, "duration_ms": 12.63, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:33.045016Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:38.033484Z"}
+{"status_code": 200, "duration_ms": 21.18, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:38.054111Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:38.260128Z"}
+{"status_code": 307, "duration_ms": 1.13, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:38.261254Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:38.265222Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:24:38.278035Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:24:38.279036Z"}
+{"status_code": 200, "duration_ms": 14.81, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:38.280034Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:43.032504Z"}
+{"status_code": 200, "duration_ms": 8.03, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:43.040536Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:48.031305Z"}
+{"status_code": 200, "duration_ms": 9.38, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:48.040684Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:53.033765Z"}
+{"status_code": 200, "duration_ms": 13.35, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:53.047113Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:58.033293Z"}
+{"status_code": 200, "duration_ms": 11.96, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:24:58.044083Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:03.031059Z"}
+{"status_code": 200, "duration_ms": 13.69, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:03.045206Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:08.029925Z"}
+{"status_code": 200, "duration_ms": 14.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:08.044338Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:08.255826Z"}
+{"status_code": 307, "duration_ms": 0.58, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:08.256403Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:08.259175Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:25:08.293344Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:25:08.294358Z"}
+{"status_code": 200, "duration_ms": 36.36, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:08.295535Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:13.030945Z"}
+{"status_code": 200, "duration_ms": 7.46, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:13.038947Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:18.029976Z"}
+{"status_code": 200, "duration_ms": 12.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:18.042597Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:23.030319Z"}
+{"status_code": 200, "duration_ms": 10.44, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:23.040922Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:28.027136Z"}
+{"status_code": 200, "duration_ms": 11.04, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:28.038176Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:33.029010Z"}
+{"status_code": 200, "duration_ms": 12.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:33.041979Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:38.029947Z"}
+{"status_code": 200, "duration_ms": 7.58, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:38.037532Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:38.255990Z"}
+{"status_code": 307, "duration_ms": 0.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:38.256509Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:38.258683Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:25:38.283125Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:25:38.283125Z"}
+{"status_code": 200, "duration_ms": 26.96, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:38.285646Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:43.030614Z"}
+{"status_code": 200, "duration_ms": 12.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:43.043407Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:48.025701Z"}
+{"status_code": 200, "duration_ms": 7.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:48.033218Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:53.029672Z"}
+{"status_code": 200, "duration_ms": 12.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:53.042295Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:58.028370Z"}
+{"status_code": 200, "duration_ms": 9.66, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:25:58.038030Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:03.026928Z"}
+{"status_code": 200, "duration_ms": 13.66, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:03.040584Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:08.028193Z"}
+{"status_code": 200, "duration_ms": 13.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:08.042159Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:08.262908Z"}
+{"status_code": 307, "duration_ms": 1.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:08.263977Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:08.267188Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:26:08.316371Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:26:08.317369Z"}
+{"status_code": 200, "duration_ms": 51.7, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:08.318888Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:13.028184Z"}
+{"status_code": 200, "duration_ms": 14.23, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:13.042414Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:18.024314Z"}
+{"status_code": 200, "duration_ms": 9.18, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:18.033496Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:23.025947Z"}
+{"status_code": 200, "duration_ms": 8.03, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:23.033973Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:28.025876Z"}
+{"status_code": 200, "duration_ms": 11.96, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:28.037831Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:33.023357Z"}
+{"status_code": 200, "duration_ms": 8.54, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:33.031898Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:38.026241Z"}
+{"status_code": 200, "duration_ms": 10.43, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:38.036675Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:38.252127Z"}
+{"status_code": 307, "duration_ms": 1.15, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:38.253279Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:38.257128Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:26:38.272849Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:26:38.272849Z"}
+{"status_code": 200, "duration_ms": 18.23, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:38.275362Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:43.025743Z"}
+{"status_code": 200, "duration_ms": 15.01, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:43.040754Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:48.022281Z"}
+{"status_code": 200, "duration_ms": 10.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:48.032425Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:53.023986Z"}
+{"status_code": 200, "duration_ms": 11.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:53.035864Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:58.023904Z"}
+{"status_code": 200, "duration_ms": 10.43, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:26:58.034331Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:03.022180Z"}
+{"status_code": 200, "duration_ms": 14.6, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:03.036777Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:08.020754Z"}
+{"status_code": 200, "duration_ms": 11.73, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:08.032483Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:08.247641Z"}
+{"status_code": 307, "duration_ms": 1.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:08.248709Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:08.251387Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:27:08.288544Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:27:08.289541Z"}
+{"status_code": 200, "duration_ms": 39.15, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:08.290541Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:13.023580Z"}
+{"status_code": 200, "duration_ms": 9.28, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:13.032321Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:18.020499Z"}
+{"status_code": 200, "duration_ms": 11.83, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:18.032327Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:23.022381Z"}
+{"status_code": 200, "duration_ms": 7.87, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:23.030254Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:28.023677Z"}
+{"status_code": 200, "duration_ms": 10.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:28.034301Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:33.021247Z"}
+{"status_code": 200, "duration_ms": 15.39, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:33.035941Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:38.021215Z"}
+{"status_code": 200, "duration_ms": 10.21, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:38.031425Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:38.253451Z"}
+{"status_code": 307, "duration_ms": 1.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:38.254500Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:38.256612Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:27:38.304322Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:27:38.305237Z"}
+{"status_code": 200, "duration_ms": 49.72, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:38.306332Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:43.022200Z"}
+{"status_code": 200, "duration_ms": 9.04, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:43.031242Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:48.017860Z"}
+{"status_code": 200, "duration_ms": 10.19, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:48.028045Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:53.020354Z"}
+{"status_code": 200, "duration_ms": 13.54, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:53.033896Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:58.021867Z"}
+{"status_code": 200, "duration_ms": 9.8, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:27:58.031514Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:03.020030Z"}
+{"status_code": 200, "duration_ms": 12.77, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:03.032237Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:08.020879Z"}
+{"status_code": 200, "duration_ms": 13.18, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:08.034058Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:08.242736Z"}
+{"status_code": 307, "duration_ms": 1.04, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:08.243780Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:08.247060Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:28:08.283446Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:28:08.283446Z"}
+{"status_code": 200, "duration_ms": 39.32, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:08.285832Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:13.019189Z"}
+{"status_code": 200, "duration_ms": 9.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:13.028714Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:18.018605Z"}
+{"status_code": 200, "duration_ms": 13.4, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:18.031495Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:23.019922Z"}
+{"status_code": 200, "duration_ms": 12.1, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:23.032023Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:28.028157Z"}
+{"status_code": 200, "duration_ms": 11.87, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:28.040027Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:33.016064Z"}
+{"status_code": 200, "duration_ms": 11.26, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:33.027322Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:38.017749Z"}
+{"status_code": 200, "duration_ms": 12.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:38.030646Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:38.253228Z"}
+{"status_code": 307, "duration_ms": 1.1, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:38.254326Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:38.257701Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:28:38.298198Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:28:38.299199Z"}
+{"status_code": 200, "duration_ms": 43.69, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:38.300799Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:43.017171Z"}
+{"status_code": 200, "duration_ms": 10.66, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:43.027828Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:48.016032Z"}
+{"status_code": 200, "duration_ms": 11.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:48.027555Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:53.016281Z"}
+{"status_code": 200, "duration_ms": 9.84, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:53.027111Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:58.018519Z"}
+{"status_code": 200, "duration_ms": 11.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:28:58.029930Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:03.013531Z"}
+{"status_code": 200, "duration_ms": 9.22, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:03.023289Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:08.026045Z"}
+{"status_code": 200, "duration_ms": 9.28, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:08.035329Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:08.249731Z"}
+{"status_code": 307, "duration_ms": 1.6, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:08.250775Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:08.253493Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:29:08.293925Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:29:08.294916Z"}
+{"status_code": 200, "duration_ms": 42.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:08.295905Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:13.015346Z"}
+{"status_code": 200, "duration_ms": 13.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:13.029244Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:18.013749Z"}
+{"status_code": 200, "duration_ms": 10.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:18.025191Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:23.014917Z"}
+{"status_code": 200, "duration_ms": 12.8, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:23.027714Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:28.014890Z"}
+{"status_code": 200, "duration_ms": 9.47, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:28.023814Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:33.013108Z"}
+{"status_code": 200, "duration_ms": 13.98, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:33.026531Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:38.014107Z"}
+{"status_code": 200, "duration_ms": 12.25, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:38.026352Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:38.247764Z"}
+{"status_code": 307, "duration_ms": 1.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:38.248825Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:38.252819Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:29:38.275979Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:29:38.276647Z"}
+{"status_code": 200, "duration_ms": 25.42, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:38.278236Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:43.014015Z"}
+{"status_code": 200, "duration_ms": 11.19, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:43.025104Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:48.011974Z"}
+{"status_code": 200, "duration_ms": 13.07, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:48.025045Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:53.013638Z"}
+{"status_code": 200, "duration_ms": 11.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:53.025045Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:58.011478Z"}
+{"status_code": 200, "duration_ms": 12.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:29:58.023994Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:03.010807Z"}
+{"status_code": 200, "duration_ms": 10.22, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:03.021026Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:08.013765Z"}
+{"status_code": 200, "duration_ms": 12.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:08.025332Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:08.237897Z"}
+{"status_code": 307, "duration_ms": 1.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:08.239879Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:08.243356Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:30:08.272587Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:30:08.272587Z"}
+{"status_code": 200, "duration_ms": 31.23, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:08.274587Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:13.012046Z"}
+{"status_code": 200, "duration_ms": 11.48, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:13.023524Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:18.009522Z"}
+{"status_code": 200, "duration_ms": 13.75, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:18.023271Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:23.011678Z"}
+{"status_code": 200, "duration_ms": 11.3, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:23.022973Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:28.011848Z"}
+{"status_code": 200, "duration_ms": 11.99, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:28.022743Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:33.008589Z"}
+{"status_code": 200, "duration_ms": 8.86, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:33.017447Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:38.011031Z"}
+{"status_code": 200, "duration_ms": 12.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:38.023909Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:38.235156Z"}
+{"status_code": 307, "duration_ms": 1.56, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:38.236717Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:38.241088Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:30:38.257689Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:30:38.258771Z"}
+{"status_code": 200, "duration_ms": 19.2, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:38.260288Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:43.010066Z"}
+{"status_code": 200, "duration_ms": 9.72, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:43.019782Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:48.008847Z"}
+{"status_code": 200, "duration_ms": 10.78, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:48.019631Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:53.009933Z"}
+{"status_code": 200, "duration_ms": 9.0, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:53.018933Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:58.009279Z"}
+{"status_code": 200, "duration_ms": 12.39, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:30:58.021666Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:03.007630Z"}
+{"status_code": 200, "duration_ms": 8.98, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:03.016615Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:08.009079Z"}
+{"status_code": 200, "duration_ms": 13.03, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:08.022107Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:08.231971Z"}
+{"status_code": 307, "duration_ms": 1.04, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:08.233008Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:08.235636Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:31:08.248907Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:31:08.248907Z"}
+{"status_code": 200, "duration_ms": 15.27, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:08.250905Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:13.009737Z"}
+{"status_code": 200, "duration_ms": 10.91, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:13.020649Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:18.007492Z"}
+{"status_code": 200, "duration_ms": 12.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:18.019600Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:23.009021Z"}
+{"status_code": 200, "duration_ms": 9.09, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:23.017969Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:28.009682Z"}
+{"status_code": 200, "duration_ms": 12.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:28.022187Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:33.006026Z"}
+{"status_code": 200, "duration_ms": 10.68, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:33.016198Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:38.011118Z"}
+{"status_code": 200, "duration_ms": 8.59, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:38.019707Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:38.230230Z"}
+{"status_code": 307, "duration_ms": 1.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:38.231284Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:38.234549Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:31:38.274222Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:31:38.275404Z"}
+{"status_code": 200, "duration_ms": 43.42, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:38.277406Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:43.019749Z"}
+{"status_code": 200, "duration_ms": 7.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:43.027723Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:48.004787Z"}
+{"status_code": 200, "duration_ms": 13.29, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:48.018074Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:53.007315Z"}
+{"status_code": 200, "duration_ms": 14.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:53.021364Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:58.007734Z"}
+{"status_code": 200, "duration_ms": 13.71, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:31:58.021440Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:03.004289Z"}
+{"status_code": 200, "duration_ms": 13.27, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:03.017443Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:08.019322Z"}
+{"status_code": 200, "duration_ms": 13.63, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:08.032954Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:08.228097Z"}
+{"status_code": 307, "duration_ms": 1.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:08.229155Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:08.231797Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:32:08.264936Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:32:08.265444Z"}
+{"status_code": 200, "duration_ms": 35.18, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:08.266462Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:13.003788Z"}
+{"status_code": 200, "duration_ms": 12.57, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:13.016361Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:18.018222Z"}
+{"status_code": 200, "duration_ms": 12.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:18.030753Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:23.005795Z"}
+{"status_code": 200, "duration_ms": 12.71, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:23.018504Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:28.016400Z"}
+{"status_code": 200, "duration_ms": 8.74, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:28.025144Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:33.001351Z"}
+{"status_code": 200, "duration_ms": 9.21, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:33.009550Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:38.014992Z"}
+{"status_code": 200, "duration_ms": 7.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:38.022526Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:38.228138Z"}
+{"status_code": 307, "duration_ms": 0.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:38.228669Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:38.230778Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:32:38.245077Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:32:38.247766Z"}
+{"status_code": 200, "duration_ms": 19.48, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:38.250260Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:43.012837Z"}
+{"status_code": 200, "duration_ms": 11.94, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:43.024773Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:47.999857Z"}
+{"status_code": 200, "duration_ms": 9.47, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:48.008218Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:53.001525Z"}
+{"status_code": 200, "duration_ms": 11.81, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:53.013334Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:58.001558Z"}
+{"status_code": 200, "duration_ms": 10.05, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:32:58.011412Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:03.000935Z"}
+{"status_code": 200, "duration_ms": 13.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:03.014851Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:08.001636Z"}
+{"status_code": 200, "duration_ms": 11.46, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:08.012088Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:08.240003Z"}
+{"status_code": 307, "duration_ms": 0.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:08.240622Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:08.243560Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:33:08.271032Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:33:08.271931Z"}
+{"status_code": 200, "duration_ms": 32.39, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:08.275950Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:13.000327Z"}
+{"status_code": 200, "duration_ms": 13.1, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:13.013423Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:17.998059Z"}
+{"status_code": 200, "duration_ms": 15.23, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:18.013284Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:23.001440Z"}
+{"status_code": 200, "duration_ms": 14.78, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:23.016219Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:28.000788Z"}
+{"status_code": 200, "duration_ms": 15.08, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:28.015863Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:32.998297Z"}
+{"status_code": 200, "duration_ms": 13.74, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:33.012037Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:37.998050Z"}
+{"status_code": 200, "duration_ms": 13.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:38.011951Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:38.232106Z"}
+{"status_code": 307, "duration_ms": 1.08, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:38.233190Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:38.235439Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:33:38.247925Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:33:38.248926Z"}
+{"status_code": 200, "duration_ms": 15.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:38.250948Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:42.998547Z"}
+{"status_code": 200, "duration_ms": 23.66, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:43.022206Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:47.996739Z"}
+{"status_code": 200, "duration_ms": 13.49, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:48.010227Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:52.998660Z"}
+{"status_code": 200, "duration_ms": 11.98, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:53.010644Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:57.996670Z"}
+{"status_code": 200, "duration_ms": 12.24, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:33:58.008907Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:02.995799Z"}
+{"status_code": 200, "duration_ms": 14.79, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:03.010469Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:07.996988Z"}
+{"status_code": 200, "duration_ms": 9.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:08.006604Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:08.221958Z"}
+{"status_code": 307, "duration_ms": 1.04, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:08.223004Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:08.225081Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:34:08.236369Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:34:08.236369Z"}
+{"status_code": 200, "duration_ms": 13.3, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:08.238379Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:12.997713Z"}
+{"status_code": 200, "duration_ms": 14.87, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:13.012498Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:17.994547Z"}
+{"status_code": 200, "duration_ms": 15.94, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:18.009470Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:22.996484Z"}
+{"status_code": 200, "duration_ms": 11.3, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:23.007782Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:27.995514Z"}
+{"status_code": 200, "duration_ms": 13.95, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:28.009460Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:32.993134Z"}
+{"status_code": 200, "duration_ms": 14.28, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:33.007412Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:37.996909Z"}
+{"status_code": 200, "duration_ms": 16.37, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:38.013282Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:38.218904Z"}
+{"status_code": 307, "duration_ms": 0.52, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:38.219428Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:38.223425Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:34:38.265565Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:34:38.266587Z"}
+{"status_code": 200, "duration_ms": 44.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:38.268391Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:42.994862Z"}
+{"status_code": 200, "duration_ms": 20.29, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:43.015149Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:47.993020Z"}
+{"status_code": 200, "duration_ms": 13.34, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:48.006665Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:52.992944Z"}
+{"status_code": 200, "duration_ms": 13.17, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:53.006118Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:57.992078Z"}
+{"status_code": 200, "duration_ms": 11.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:34:58.003592Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:02.991720Z"}
+{"status_code": 200, "duration_ms": 14.78, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:03.006504Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:07.992225Z"}
+{"status_code": 200, "duration_ms": 14.4, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:08.006621Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:08.216540Z"}
+{"status_code": 307, "duration_ms": 0.54, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:08.217600Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:08.219948Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:35:08.256442Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:35:08.256442Z"}
+{"status_code": 200, "duration_ms": 38.47, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:08.258419Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:12.992046Z"}
+{"status_code": 200, "duration_ms": 9.92, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:13.001962Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:17.990891Z"}
+{"status_code": 200, "duration_ms": 15.54, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:18.006435Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:22.993623Z"}
+{"status_code": 200, "duration_ms": 14.03, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:23.007656Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:27.991869Z"}
+{"status_code": 200, "duration_ms": 12.9, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:28.004772Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:32.990000Z"}
+{"status_code": 200, "duration_ms": 14.95, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:33.004955Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:37.992550Z"}
+{"status_code": 200, "duration_ms": 14.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:38.006605Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:38.214422Z"}
+{"status_code": 307, "duration_ms": 1.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:38.215480Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:38.218167Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:35:38.230835Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:35:38.230835Z"}
+{"status_code": 200, "duration_ms": 13.7, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:38.231867Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:42.992546Z"}
+{"status_code": 200, "duration_ms": 13.74, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:43.006287Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:47.987581Z"}
+{"status_code": 200, "duration_ms": 11.18, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:47.998762Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:52.992803Z"}
+{"status_code": 200, "duration_ms": 7.47, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:53.000272Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:57.988690Z"}
+{"status_code": 200, "duration_ms": 10.09, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:35:57.999782Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:02.988324Z"}
+{"status_code": 200, "duration_ms": 10.42, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:02.997825Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:07.988860Z"}
+{"status_code": 200, "duration_ms": 12.45, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:08.001305Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:08.218653Z"}
+{"status_code": 307, "duration_ms": 1.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:08.219711Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:08.221849Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:36:08.270763Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:36:08.270763Z"}
+{"status_code": 200, "duration_ms": 50.62, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:08.272465Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:12.988138Z"}
+{"status_code": 200, "duration_ms": 12.1, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:13.000241Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:17.986737Z"}
+{"status_code": 200, "duration_ms": 9.3, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:17.996040Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:22.987159Z"}
+{"status_code": 200, "duration_ms": 9.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:22.996299Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:27.987283Z"}
+{"status_code": 200, "duration_ms": 9.91, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:27.996664Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:32.986462Z"}
+{"status_code": 200, "duration_ms": 9.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:32.995366Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:37.988202Z"}
+{"status_code": 200, "duration_ms": 11.67, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:38.000417Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:38.210581Z"}
+{"status_code": 307, "duration_ms": 1.15, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:38.211736Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:38.214474Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:36:38.245012Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:36:38.245012Z"}
+{"status_code": 200, "duration_ms": 32.43, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:38.246906Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:42.988048Z"}
+{"status_code": 200, "duration_ms": 9.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:42.997929Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:47.983422Z"}
+{"status_code": 200, "duration_ms": 7.49, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:47.990910Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:52.986004Z"}
+{"status_code": 200, "duration_ms": 9.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:52.995147Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:57.985996Z"}
+{"status_code": 200, "duration_ms": 9.7, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:36:57.995693Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:02.984040Z"}
+{"status_code": 200, "duration_ms": 10.59, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:02.994629Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:07.985374Z"}
+{"status_code": 200, "duration_ms": 8.01, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:07.993389Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:08.212667Z"}
+{"status_code": 307, "duration_ms": 0.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:08.213217Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:08.216903Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:37:08.243639Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:37:08.244640Z"}
+{"status_code": 200, "duration_ms": 29.12, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:08.247125Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:12.983165Z"}
+{"status_code": 200, "duration_ms": 13.79, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:12.996955Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:17.981682Z"}
+{"status_code": 200, "duration_ms": 7.12, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:17.988807Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:22.985329Z"}
+{"status_code": 200, "duration_ms": 8.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:22.993187Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:27.983208Z"}
+{"status_code": 200, "duration_ms": 7.82, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:27.991026Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:32.981652Z"}
+{"status_code": 200, "duration_ms": 10.64, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:32.992295Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:37.982586Z"}
+{"status_code": 200, "duration_ms": 8.46, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:37.991042Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:38.214227Z"}
+{"status_code": 307, "duration_ms": 0.53, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:38.214760Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:38.218147Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:37:38.228487Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:37:38.229489Z"}
+{"status_code": 200, "duration_ms": 11.34, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:38.229489Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:42.983035Z"}
+{"status_code": 200, "duration_ms": 8.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:42.991544Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:47.985590Z"}
+{"status_code": 200, "duration_ms": 10.73, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:47.996323Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:52.983594Z"}
+{"status_code": 200, "duration_ms": 8.15, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:52.991510Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:57.984642Z"}
+{"status_code": 200, "duration_ms": 12.81, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:37:57.996937Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:02.978714Z"}
+{"status_code": 200, "duration_ms": 7.6, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:02.986313Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:07.980381Z"}
+{"status_code": 200, "duration_ms": 7.51, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:07.987893Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:08.205801Z"}
+{"status_code": 307, "duration_ms": 1.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:08.206860Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:08.211889Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:38:08.260231Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:38:08.260231Z"}
+{"status_code": 200, "duration_ms": 50.27, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:08.262159Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:12.985234Z"}
+{"status_code": 200, "duration_ms": 7.56, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:12.992265Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:17.977761Z"}
+{"status_code": 200, "duration_ms": 8.99, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:17.987279Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:22.980442Z"}
+{"status_code": 200, "duration_ms": 7.87, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:22.988309Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:27.989179Z"}
+{"status_code": 200, "duration_ms": 14.2, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:28.003377Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:32.979039Z"}
+{"status_code": 200, "duration_ms": 9.57, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:32.988608Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:37.980218Z"}
+{"status_code": 200, "duration_ms": 8.66, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:37.988877Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:38.212240Z"}
+{"status_code": 307, "duration_ms": 1.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:38.213298Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:38.216714Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:38:38.229586Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:38:38.230401Z"}
+{"status_code": 200, "duration_ms": 16.14, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:38.232853Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:42.980374Z"}
+{"status_code": 200, "duration_ms": 9.55, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:42.989923Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:47.977390Z"}
+{"status_code": 200, "duration_ms": 8.95, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:47.986338Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:52.978533Z"}
+{"status_code": 200, "duration_ms": 8.45, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:52.986986Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:57.980271Z"}
+{"status_code": 200, "duration_ms": 11.97, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:38:57.992238Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:02.976542Z"}
+{"status_code": 200, "duration_ms": 10.88, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:02.987427Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:07.978301Z"}
+{"status_code": 200, "duration_ms": 16.13, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:07.993875Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:08.214062Z"}
+{"status_code": 307, "duration_ms": 1.41, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:08.214938Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:08.218640Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:39:08.257630Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-24T06:39:08.257630Z"}
+{"status_code": 200, "duration_ms": 40.78, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-24T06:39:08.259425Z"}
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T11:56:23.315546Z"}
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T11:58:05.004454Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T11:58:05.330139Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T11:58:05.330139Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T11:58:05.331136Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T12:15:25.829297Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:15:25.962752Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:15:25.962752Z"}
+{"error": "2 validation errors for EvaluationDataset\ndataset_name\n  Field required [type=missing, input_value={'task_type': 'Question A...tegory': 'geography'}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nevaluations\n  Field required [type=missing, input_value={'task_type': 'Question A...tegory': 'geography'}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing", "event": "Failed to evaluate dataset", "logger": "app.routes.evaluation", "level": "error", "timestamp": "2025-07-25T12:15:26.005608Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\routes\\evaluation.py\", line 89, in evaluate_dataset_structured\n    dataset = EvaluationDataset(**dataset_data)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Evaluation-Backend\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 253, in __init__\n    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npydantic_core._pydantic_core.ValidationError: 2 validation errors for EvaluationDataset\ndataset_name\n  Field required [type=missing, input_value={'task_type': 'Question A...tegory': 'geography'}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nevaluations\n  Field required [type=missing, input_value={'task_type': 'Question A...tegory': 'geography'}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing"}
+{"status_code": 500, "duration_ms": 206.5, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T12:15:26.028790Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T12:54:11.555775Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:54:11.577854Z"}
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T12:54:25.361353Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:54:25.413403Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:54:25.414404Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T12:54:25.414404Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T12:54:31.178425Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:54:31.194319Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:54:31.195318Z"}
+{"task_type": "Question Answering", "total_rows": 1, "selected_metrics": ["summarization"], "metric_category": null, "event": "Starting task-type dataset evaluation with model responses", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T12:54:31.204680Z"}
+{"models": ["gpt_4", "claude_3_sonnet", "lm_3"], "total_models": 3, "event": "Found models in dataset", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T12:54:31.206650Z"}
+{"task_type": "Question Answering", "batch_size": 1, "models": ["gpt_4", "claude_3_sonnet", "lm_3"], "event": "Starting batch multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:31.209360Z"}
+{"task_type": "Question Answering", "models": ["gpt_4", "claude_3_sonnet", "lm_3"], "metrics_requested": ["summarization"], "event": "Starting multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:31.210026Z"}
+{"metrics": ["summarization"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:31.210026Z"}
+{"metrics": ["summarization"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:31.210026Z"}
+{"metrics": ["summarization"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:31.211034Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 7341.0, "event": "Metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:38.552030Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 8336.49, "event": "Metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:39.687530Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 8508.63, "event": "Metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:39.836208Z"}
+{"task_type": "Question Answering", "models_evaluated": 3, "best_model": "gpt_4", "metrics_count": 1, "event": "Multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:39.837215Z"}
+{"successful_rows": 1, "failed_rows": 0, "best_model_overall": "gpt_4", "event": "Batch multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T12:54:39.837215Z"}
+{"error": "name 'self' is not defined", "event": "Failed to evaluate task-type dataset with model responses", "logger": "app.routes.evaluation", "level": "error", "timestamp": "2025-07-25T12:54:39.838207Z", "exception": "Traceback (most recent call last):\n  File \"D:\\Evaluation-Backend\\app\\routes\\evaluation.py\", line 250, in evaluate_dataset_structured\n    \"input_data\": self._extract_input_data(row_data, dataset.task_type),\n                  ^^^^\nNameError: name 'self' is not defined"}
+{"status_code": 500, "duration_ms": 8687.87, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T12:54:39.866290Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T12:58:05.112097Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:58:05.120833Z"}
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T12:58:19.987190Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:58:20.049687Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T12:58:20.050738Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-25T12:58:20.050738Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T13:07:09.696982Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T13:07:09.834889Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T13:07:09.834889Z"}
+{"task_type": "Question Answering", "total_rows": 1, "selected_metrics": ["summarization"], "metric_category": null, "event": "Starting task-type dataset evaluation with model responses", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T13:07:09.889043Z"}
+{"models": ["lm_3", "claude_3_sonnet", "gpt_4"], "total_models": 3, "event": "Found models in dataset", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T13:07:09.890044Z"}
+{"task_type": "Question Answering", "batch_size": 1, "models": ["lm_3", "claude_3_sonnet", "gpt_4"], "event": "Starting batch multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:09.897383Z"}
+{"task_type": "Question Answering", "models": ["lm_3", "claude_3_sonnet", "gpt_4"], "metrics_requested": ["summarization"], "event": "Starting multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:09.898381Z"}
+{"metrics": ["summarization"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:09.902866Z"}
+{"metrics": ["summarization"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:09.902866Z"}
+{"metrics": ["summarization"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:09.903872Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 7313.17, "event": "Metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:17.368122Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 7371.06, "event": "Metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:17.545736Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 7779.05, "event": "Metric 'summarization' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:17.683914Z"}
+{"task_type": "Question Answering", "models_evaluated": 3, "best_model": "lm_3", "metrics_count": 1, "event": "Multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:17.684267Z"}
+{"successful_rows": 1, "failed_rows": 0, "best_model_overall": "lm_3", "event": "Batch multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:07:17.685289Z"}
+{"task_type": "Question Answering", "total_evaluations": 1, "models_evaluated": 3, "best_model_overall": "lm_3", "metrics_used": ["summarization"], "event": "Task-type dataset evaluation with model responses completed", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T13:07:17.686281Z"}
+{"status_code": 200, "duration_ms": 8013.06, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T13:07:17.694284Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T13:29:20.523728Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T13:29:20.823393Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-25T13:29:20.823393Z"}
+{"task_type": "Question Answering", "total_rows": 1, "selected_metrics": ["answer_relevancy"], "metric_category": null, "event": "Starting task-type dataset evaluation with model responses", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T13:29:20.958935Z"}
+{"models": ["lm_3", "claude_3_sonnet", "gpt_4"], "total_models": 3, "event": "Found models in dataset", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T13:29:20.959947Z"}
+{"task_type": "Question Answering", "batch_size": 1, "models": ["lm_3", "claude_3_sonnet", "gpt_4"], "event": "Starting batch multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:20.966962Z"}
+{"task_type": "Question Answering", "models": ["lm_3", "claude_3_sonnet", "gpt_4"], "metrics_requested": ["answer_relevancy"], "event": "Starting multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:20.970949Z"}
+{"metrics": ["answer_relevancy"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:21.128504Z"}
+{"metrics": ["answer_relevancy"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:21.129506Z"}
+{"metrics": ["answer_relevancy"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:21.130508Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 4190.08, "event": "Metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:25.526117Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 5784.55, "event": "Metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:27.081431Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 0.0, "threshold": 0.7, "passed": false, "duration_ms": 6878.48, "event": "Metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:28.008992Z"}
+{"task_type": "Question Answering", "models_evaluated": 3, "best_model": "lm_3", "metrics_count": 1, "event": "Multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:28.009996Z"}
+{"successful_rows": 1, "failed_rows": 0, "best_model_overall": "lm_3", "event": "Batch multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-25T13:29:28.010993Z"}
+{"task_type": "Question Answering", "total_evaluations": 1, "models_evaluated": 3, "best_model_overall": "lm_3", "metrics_used": ["answer_relevancy"], "event": "Task-type dataset evaluation with model responses completed", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-25T13:29:28.010993Z"}
+{"status_code": 200, "duration_ms": 7503.13, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-25T13:29:28.018861Z"}
+{"version": "1.0.0", "service_name": "evaluation-service", "event": "Starting Claude Evaluation Backend", "logger": "app.main", "level": "info", "timestamp": "2025-07-28T04:39:14.668496Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-28T04:39:15.014170Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-28T04:39:15.014170Z"}
+{"event": "Application startup complete", "logger": "app.main", "level": "info", "timestamp": "2025-07-28T04:39:15.014170Z"}
+{"event": "Request started", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-28T05:12:03.018834Z"}
+{"event": "Database indexes created successfully", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-28T05:12:03.186078Z"}
+{"database": "evaluation_db", "event": "Successfully connected to MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-28T05:12:03.186078Z"}
+{"task_type": "Question Answering", "total_rows": 1, "selected_metrics": ["answer_relevancy"], "metric_category": null, "event": "Starting task-type dataset evaluation with model responses", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-28T05:12:03.266732Z"}
+{"models": ["gpt_4", "claude_3_sonnet", "lm_3"], "total_models": 3, "event": "Found models in dataset", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-28T05:12:03.269133Z"}
+{"task_type": "Question Answering", "batch_size": 1, "models": ["gpt_4", "claude_3_sonnet", "lm_3"], "event": "Starting batch multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:03.277142Z"}
+{"task_type": "Question Answering", "models": ["gpt_4", "claude_3_sonnet", "lm_3"], "metrics_requested": ["answer_relevancy"], "event": "Starting multi-model evaluation", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:03.279142Z"}
+{"metrics": ["answer_relevancy"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:03.284145Z"}
+{"metrics": ["answer_relevancy"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:03.286145Z"}
+{"metrics": ["answer_relevancy"], "event": "Running 1 metrics", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:03.286145Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 4329.14, "event": "Metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:07.615284Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 3174.22, "event": "Metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:07.626273Z"}
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"score": 1.0, "threshold": 0.7, "passed": true, "duration_ms": 3316.39, "event": "Metric 'answer_relevancy' completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:07.720115Z"}
+{"task_type": "Question Answering", "models_evaluated": 3, "best_model": "gpt_4", "metrics_count": 1, "event": "Multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:07.721122Z"}
+{"successful_rows": 1, "failed_rows": 0, "best_model_overall": "gpt_4", "event": "Batch multi-model evaluation completed", "logger": "app.services.evaluation_service", "level": "info", "timestamp": "2025-07-28T05:12:07.722131Z"}
+{"task_type": "Question Answering", "total_evaluations": 1, "models_evaluated": 3, "best_model_overall": "gpt_4", "metrics_used": ["answer_relevancy"], "event": "Task-type dataset evaluation with model responses completed", "logger": "app.routes.evaluation", "level": "info", "timestamp": "2025-07-28T05:12:07.723522Z"}
+{"status_code": 200, "duration_ms": 4714.7, "event": "Request completed", "logger": "app.telemetry.middleware", "level": "info", "timestamp": "2025-07-28T05:12:07.726535Z"}
+{"event": "Shutting down application", "logger": "app.main", "level": "info", "timestamp": "2025-07-28T06:19:35.532197Z"}
+{"event": "Disconnected from MongoDB", "logger": "app.db.connection", "level": "info", "timestamp": "2025-07-28T06:19:40.974766Z"}

@@ -1,17 +1,12 @@
-"""Evaluation API endpoints - DeepEval metrics only."""
-from typing import List
+"""Updated evaluation API endpoints for task-type based YAML datasets."""
+from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, Depends, HTTPException, Request
 from motor.motor_asyncio import AsyncIOMotorDatabase
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 import structlog
 import yaml
 from pathlib import Path
 
-from app.models.evaluation import (
-    BatchEvaluationRequest,
-    BatchEvaluationResult,
-    EvaluationDataset
-)
 from app.models.response import APIResponse
 from app.db.connection import get_database
 from app.services.evaluation_service import evaluation_service
@@ -25,7 +20,110 @@ router = APIRouter(prefix="/api/v1/evaluations", tags=["Evaluations"])
 class EvaluationRequest(BaseModel):
     """Request model for dataset evaluation."""
     file_path: str
-    metrics: List[str]
+    metrics: List[str] = Field(
+        default=["answer_relevancy", "faithfulness", "bias"],
+        description="Direct list of DeepEval metric names"
+    )
+    metric_category: Optional[str] = Field(
+        default=None,
+        description="Optional: run all metrics from category (rag-metrics, safety-ethics, task-specific, custom-metrics)"
+    )
+
+
+class DatasetRow(BaseModel):
+    """Flexible dataset row model for different task types with model responses."""
+    # Question Answering
+    question: Optional[str] = None
+    expected_answer: Optional[str] = None
+    context: Optional[str] = None
+    
+    # Summarization
+    input_text: Optional[str] = None
+    expected_summary: Optional[str] = None
+    
+    # Conversational QA
+    conversation_history: Optional[str] = None
+    
+    # Retrieval (RAG)
+    query: Optional[str] = None
+    retrieved_documents: Optional[str] = None
+    
+    # Classification
+    expected_label: Optional[str] = None
+    
+    # Structured Output Generation
+    input_instruction: Optional[str] = None
+    expected_output: Optional[str] = None
+    
+    # Open-ended Generation
+    prompt: Optional[str] = None
+    reference_output: Optional[str] = None
+    
+    # Model responses - the key addition for your YAML structure
+    model_responses: Dict[str, str] = Field(
+        default_factory=dict,
+        description="Dictionary of model_name: generated_response"
+    )
+    
+    # Common optional fields
+    reference: Optional[str] = None
+    ground_truth: Optional[str] = None
+    metadata: Optional[Dict[str, Any]] = None
+    category: Optional[str] = None
+    difficulty: Optional[str] = None
+
+
+class TaskTypeDataset(BaseModel):
+    """Dataset model for task-type based YAML structure with model responses."""
+    task_type: str
+    description: Optional[str] = None
+    data: List[DatasetRow] = Field(alias="data")  # Support "data" field name from your YAML
+    metadata: Optional[Dict[str, Any]] = None
+    
+    class Config:
+        allow_population_by_field_name = True
+
+
+@router.get("/metrics")
+async def get_available_metrics():
+    """Get list of available DeepEval metrics organized by category."""
+    
+    with tracer.start_as_current_span("get_available_metrics") as span:
+        try:
+            metric_info = evaluation_service.get_metric_info()
+            
+            span.set_attribute("total_metrics", metric_info["total_count"])
+            
+            logger.info(
+                "Retrieved available metrics",
+                total_metrics=metric_info["total_count"],
+                categories=list(metric_info["metric_categories"].keys())
+            )
+            
+            return {
+                "success": True,
+                "data": {
+                    "metric_categories": metric_info["metric_categories"],
+                    "all_available_metrics": metric_info["all_available_metrics"],
+                    "total_count": metric_info["total_count"],
+                    "note": metric_info["note"],
+                    "optional_metrics_status": metric_info["optional_metrics_status"],
+                    "usage_examples": {
+                        "by_category": {
+                            "rag_metrics": ["answer_relevancy", "faithfulness", "contextual_precision"],
+                            "safety_metrics": ["bias", "toxicity", "hallucination"],
+                            "task_specific": ["summarization"] if metric_info["optional_metrics_status"]["summarization"] else [],
+                            "custom": ["g_eval"] if metric_info["optional_metrics_status"]["g_eval"] else []
+                        },
+                        "mixed_selection": ["answer_relevancy", "bias", "summarization"],
+                        "use_category": "Set metric_category to 'rag-metrics' to run all RAG metrics"
+                    }
+                }
+            }
+            
+        except Exception as e:
+            logger.error("Failed to get available metrics", error=str(e), exc_info=True)
+            raise HTTPException(status_code=500, detail=f"Failed to retrieve metrics: {str(e)}")
 
 
 @router.post("/dataset/evaluate", response_model=APIResponse)
@@ -34,7 +132,7 @@ async def evaluate_dataset_structured(
     http_request: Request,
     db: AsyncIOMotorDatabase = Depends(get_database)
 ):
-    """Load YAML dataset and evaluate with DeepEval metrics."""
+    """Load task-type YAML dataset with model_responses and evaluate with specified DeepEval metrics."""
     
     with tracer.start_as_current_span("evaluate_dataset_structured") as span:
         try:
@@ -44,245 +142,241 @@ async def evaluate_dataset_structured(
                 raise HTTPException(status_code=404, detail=f"File not found: {request.file_path}")
             
             with open(yaml_file, 'r', encoding='utf-8') as f:
-                dataset_data = yaml.safe_load(f)
+                yaml_data = yaml.safe_load(f)
             
-            dataset = EvaluationDataset(**dataset_data)
+            # Parse the task-type dataset structure
+            try:
+                dataset = TaskTypeDataset(**yaml_data)
+            except Exception as e:
+                logger.error("Failed to parse YAML dataset", error=str(e), yaml_structure=yaml_data)
+                raise HTTPException(
+                    status_code=400, 
+                    detail=f"Invalid YAML structure. Expected task_type, description, and data fields. Error: {str(e)}"
+                )
             
-            span.set_attribute("dataset.name", dataset.dataset_name)
-            span.set_attribute("dataset.size", len(dataset.evaluations))
+            span.set_attribute("dataset.task_type", dataset.task_type)
+            span.set_attribute("dataset.size", len(dataset.data))
             span.set_attribute("selected_metrics", str(request.metrics))
+            span.set_attribute("metric_category", request.metric_category or "custom_selection")
             
             logger.info(
-                "Starting dataset evaluation",
-                dataset_name=dataset.dataset_name,
-                total_evaluations=len(dataset.evaluations),
-                selected_metrics=request.metrics
+                "Starting task-type dataset evaluation with model responses",
+                task_type=dataset.task_type,
+                total_rows=len(dataset.data),
+                selected_metrics=request.metrics,
+                metric_category=request.metric_category
             )
             
-            # Process each test case
-            test_results = []
-            all_model_scores = {}
-            metric_aggregated_data = {metric: {} for metric in request.metrics}
+            # Validate metrics if specific metrics provided
+            if request.metrics and not request.metric_category:
+                available_metrics = evaluation_service.get_available_metrics()
+                invalid_metrics = [m for m in request.metrics if m.lower() not in [am.lower() for am in available_metrics]]
+                if invalid_metrics:
+                    raise HTTPException(
+                        status_code=400, 
+                        detail=f"Invalid metrics: {invalid_metrics}. Available: {available_metrics}"
+                    )
             
-            for i, eval_item in enumerate(dataset.evaluations):
-                # Run evaluation with selected DeepEval metrics
-                batch_request = BatchEvaluationRequest(
-                    input=eval_item.input,
-                    expected_output=eval_item.expected_output,
-                    model_responses=eval_item.model_responses,
-                    context=eval_item.context,
-                    category=eval_item.category,
-                    difficulty=eval_item.difficulty
+            # Extract all model names from the dataset
+            all_model_names = set()
+            for row in dataset.data:
+                all_model_names.update(row.model_responses.keys())
+            
+            all_model_names = list(all_model_names)
+            
+            if not all_model_names:
+                raise HTTPException(
+                    status_code=400,
+                    detail="No model_responses found in dataset. Please ensure each row has model_responses field."
                 )
-                
-                # Pass selected metrics to evaluation service
-                batch_result = await evaluation_service.evaluate_batch(batch_request, request.metrics)
-                
-                # Store batch result in database
-                collection = db.get_collection("batch_evaluations")
-                inserted = await collection.insert_one(batch_result.dict(by_alias=True))
-                batch_result.id = inserted.inserted_id
-                
-                # Extract metrics for each model
-                responses = []
-                
-                for model_name, model_result in batch_result.model_results.items():
-                    # Get DeepEval scores from metadata
-                    deepeval_scores = model_result.metadata.get("deepeval_scores", {})
-                    
-                    # Get individual metric scores
-                    metrics = {}
-                    metric_scores = []
-                    
-                    for metric_name in request.metrics:
-                        # Get score from DeepEval results
-                        score = deepeval_scores.get(metric_name, 0.0)
-                        score = round(score, 2)
-                        metrics[metric_name] = score
-                        metric_scores.append(score)
-                        
-                        # Aggregate for metrics_aggregated
-                        if model_name not in metric_aggregated_data[metric_name]:
-                            metric_aggregated_data[metric_name][model_name] = []
-                        metric_aggregated_data[metric_name][model_name].append(score)
-                    
-                    # Calculate overall score
-                    overall_score = round(sum(metric_scores) / len(metric_scores), 2) if metric_scores else 0.0
-                    
-                    # Store for model averages
-                    if model_name not in all_model_scores:
-                        all_model_scores[model_name] = []
-                    all_model_scores[model_name].append(overall_score)
-                    
-                    # Create response object
-                    response_obj = {
-                        "model": model_name,
-                        "response": eval_item.model_responses[model_name],
-                        "metrics": metrics,
-                        "overall_score": overall_score
-                    }
-                    
-                    responses.append(response_obj)
-                
-                # Create test result
-                test_result = {
-                    "test_id": f"test-case-{i+1:03d}",
-                    "input": eval_item.input,
-                    "expected_output": eval_item.expected_output,
-                    "responses": responses,
-                    "evaluation_id": str(batch_result.id)  # Reference to stored evaluation
-                }
-                
-                test_results.append(test_result)
-                
-                logger.info(
-                    f"Completed evaluation {i+1}/{len(dataset.evaluations)}",
-                    test_id=test_result["test_id"],
-                    evaluation_id=str(batch_result.id)
-                )
-            
-            # Calculate model averages
-            model_average_scores = []
-            for model_name, scores in all_model_scores.items():
-                avg_score = round(sum(scores) / len(scores), 2)
-                model_average_scores.append({
-                    "model": model_name,
-                    "average_score": avg_score
-                })
-            
-            # Sort by average score descending
-            model_average_scores.sort(key=lambda x: x["average_score"], reverse=True)
-            
-            # Find overall best model
-            overall_best_model = model_average_scores[0]["model"] if model_average_scores else None
-            
-            # Calculate metrics aggregated
-            metrics_aggregated = []
-            for metric_name in request.metrics:
-                metric_scores = {}
-                for model_name, scores_list in metric_aggregated_data[metric_name].items():
-                    metric_scores[model_name] = round(sum(scores_list) / len(scores_list), 2)
-                
-                metrics_aggregated.append({
-                    "metric": metric_name,
-                    "scores": metric_scores
-                })
-            
-            # Create summary
-            summary = {
-                "total_test_cases": len(test_results),
-                "models_evaluated": list(all_model_scores.keys()),
-                "overall_best_model": overall_best_model,
-                "model_average_scores": model_average_scores,
-                "deepeval_metrics_used": request.metrics
-            }
             
             logger.info(
-                "Dataset evaluation completed",
-                dataset_name=dataset.dataset_name,
-                total_evaluations=len(test_results),
-                best_model=overall_best_model,
-                metrics_used=request.metrics
+                "Found models in dataset",
+                models=all_model_names,
+                total_models=len(all_model_names)
+            )
+            
+            # Prepare data for batch evaluation
+            dataset_rows = []
+            model_outputs = {model_name: [] for model_name in all_model_names}
+            
+            for i, row in enumerate(dataset.data):
+                row_dict = row.dict(exclude_none=True)
+                # Remove model_responses from row_dict as we'll pass it separately
+                row_model_responses = row_dict.pop('model_responses', {})
+                dataset_rows.append(row_dict)
+                
+                # Collect model outputs for this row
+                for model_name in all_model_names:
+                    # Use empty string if model doesn't have response for this row
+                    model_output = row_model_responses.get(model_name, "")
+                    model_outputs[model_name].append(model_output)
+            
+            # Validate all models have responses for all rows
+            for model_name, outputs in model_outputs.items():
+                if len(outputs) != len(dataset_rows):
+                    logger.warning(f"Model '{model_name}' missing some responses, padding with empty strings")
+                    # Pad with empty strings if needed
+                    while len(outputs) < len(dataset_rows):
+                        outputs.append("")
+            
+            # Use the batch evaluation method
+            evaluation_result = await evaluation_service.evaluate_dataset_batch_multiple_models(
+                dataset_rows=dataset_rows,
+                model_outputs=model_outputs,
+                task_type=dataset.task_type,
+                selected_metrics=request.metrics if request.metrics else None,
+                metric_category=request.metric_category
+            )
+            
+            # Extract detailed results for response
+            detailed_results = []
+            for i, row_result in enumerate(evaluation_result.get("row_results", [])):
+                row_data = dataset_rows[i] if i < len(dataset_rows) else {}
+                model_scores = row_result.get("model_scores", {})
+                
+                # Calculate best model for this row
+                best_model_for_row = None
+                best_score_for_row = -1
+                for model_name, scores in model_scores.items():
+                    if scores:
+                        avg_score = sum(scores.values()) / len(scores)
+                        if avg_score > best_score_for_row:
+                            best_score_for_row = avg_score
+                            best_model_for_row = model_name
+                
+                detailed_result = {
+                    "row_id": i + 1,
+                    "input_data": _extract_input_data(row_data, dataset.task_type),
+                    "expected_output": _extract_expected_output(row_data, dataset.task_type),
+                    "model_evaluations": {},
+                    "best_model_for_row": best_model_for_row,
+                    "best_score_for_row": round(best_score_for_row, 3) if best_score_for_row > -1 else 0,
+                    "category": row_data.get('category', 'general'),
+                    "difficulty": row_data.get('difficulty', 'medium')
+                }
+                
+                # Add individual model evaluations
+                for model_name, scores in model_scores.items():
+                    model_output = model_outputs[model_name][i] if i < len(model_outputs[model_name]) else ""
+                    overall_score = sum(scores.values()) / len(scores) if scores else 0
+                    
+                    detailed_result["model_evaluations"][model_name] = {
+                        "model_output": model_output[:200] + "..." if len(model_output) > 200 else model_output,
+                        "metric_scores": {k: round(v, 3) for k, v in scores.items()},
+                        "overall_score": round(overall_score, 3)
+                    }
+                
+                detailed_results.append(detailed_result)
+            
+            # Create enhanced summary
+            batch_stats = evaluation_result.get("batch_statistics", {})
+            model_stats = batch_stats.get("model_statistics", {})
+            
+            summary = {
+                "dataset_info": {
+                    "task_type": dataset.task_type,
+                    "description": dataset.description,
+                    "total_rows": len(dataset.data),
+                    "successfully_evaluated": evaluation_result.get("successful_rows", 0),
+                    "failed_evaluations": len(evaluation_result.get("failed_rows", []))
+                },
+                "models_info": {
+                    "models_evaluated": all_model_names,
+                    "total_models": len(all_model_names),
+                    "best_model_overall": batch_stats.get("best_model_overall"),
+                    "best_score_overall": round(batch_stats.get("best_score_overall", 0), 3)
+                },
+                "evaluation_config": {
+                    "selected_metrics": request.metrics,
+                    "metric_category": request.metric_category,
+                    "total_metrics_used": len(request.metrics) if request.metrics else 0
+                },
+                "model_performance": {}
+            }
+            
+            # Add model performance summary
+            for model_name, stats in model_stats.items():
+                summary["model_performance"][model_name] = {
+                    "overall_average": round(stats.get("overall_average", 0), 3),
+                    "metrics_evaluated": stats.get("metrics_evaluated", 0),
+                    "metric_averages": {
+                        metric: round(metric_stats.get("average", 0), 3)
+                        for metric, metric_stats in stats.get("metric_stats", {}).items()
+                    }
+                }
+            
+            logger.info(
+                "Task-type dataset evaluation with model responses completed",
+                task_type=dataset.task_type,
+                total_evaluations=len(detailed_results),
+                models_evaluated=len(all_model_names),
+                best_model_overall=batch_stats.get("best_model_overall"),
+                metrics_used=request.metrics or "category_based"
             )
             
             return APIResponse(
                 success=True,
-                message=f"Evaluation completed successfully. {len(test_results)} test cases processed with DeepEval metrics.",
+                message=f"Dataset evaluation completed. {len(detailed_results)} rows processed across {len(all_model_names)} models.",
                 data={
                     "summary": summary,
-                    "metrics_aggregated": metrics_aggregated,
-                    "test_results": test_results
+                    "detailed_results": detailed_results,
+                    "full_batch_statistics": batch_stats
                 },
                 trace_id=getattr(http_request.state, 'trace_id', None)
             )
             
         except Exception as e:
-            logger.error("Failed to evaluate dataset", error=str(e), exc_info=True)
+            logger.error("Failed to evaluate task-type dataset with model responses", error=str(e), exc_info=True)
             raise HTTPException(status_code=500, detail=f"Evaluation failed: {str(e)}")
 
+# Add the helper methods as module-level functions
+def _extract_input_data(row_dict: Dict[str, Any], task_type: str) -> str:
+    """Extract the input data based on task type."""
+    if task_type == 'Question Answering':
+        return row_dict.get('question', '')
+    elif task_type == 'Summarization':
+        return row_dict.get('input_text', '')
+    elif task_type == 'Conversational QA':
+        history = row_dict.get('conversation_history', '')
+        question = row_dict.get('question', '')
+        return f"{history}\nUser: {question}" if history else question
+    elif task_type == 'Retrieval (RAG)':
+        return row_dict.get('query', '')
+    elif task_type == 'Classification':
+        return row_dict.get('input_text', '')
+    elif task_type == 'Structured Output Generation':
+        return row_dict.get('input_instruction', '')
+    elif task_type == 'Open-ended Generation':
+        return row_dict.get('prompt', '')
+    else:
+        # Fallback: try to find any input-like field
+        for key in ['question', 'input_text', 'prompt', 'query', 'input_instruction']:
+            if key in row_dict:
+                return row_dict[key]
+        return str(row_dict)
 
-@router.post("/batch", response_model=APIResponse)
-async def create_batch_evaluation(
-    request: BatchEvaluationRequest,
-    metrics: List[str],
-    http_request: Request,
-    db: AsyncIOMotorDatabase = Depends(get_database)
-):
-    """Create a batch evaluation for multiple models with DeepEval metrics."""
-    
-    with tracer.start_as_current_span("create_batch_evaluation") as span:
-        span.set_attribute("models.count", len(request.model_responses))
-        span.set_attribute("selected_metrics", str(metrics))
-        
-        try:
-            # Perform batch evaluation with selected metrics
-            result = await evaluation_service.evaluate_batch(request, metrics)
-            
-            # Store in database
-            collection = db.get_collection("batch_evaluations")
-            inserted = await collection.insert_one(result.dict(by_alias=True))
-            
-            # Update result with inserted ID
-            result.id = inserted.inserted_id
-            
-            logger.info(
-                "Batch evaluation created",
-                evaluation_id=str(result.id),
-                models=list(request.model_responses.keys()),
-                best_model=result.best_model,
-                average_score=result.average_score,
-                metrics_used=metrics
-            )
-            
-            return APIResponse(
-                message="Batch evaluation created successfully with DeepEval metrics",
-                data=result,
-                trace_id=getattr(http_request.state, 'trace_id', None)
-            )
-            
-        except Exception as e:
-            logger.error("Failed to create batch evaluation", error=str(e), exc_info=True)
-            raise HTTPException(
-                status_code=500,
-                detail=f"Failed to create batch evaluation: {str(e)}"
-            )
+def _extract_expected_output(row_dict: Dict[str, Any], task_type: str) -> str:
+    """Extract the expected output based on task type."""
+    if task_type == 'Question Answering':
+        return row_dict.get('expected_answer', '')
+    elif task_type == 'Summarization':
+        return row_dict.get('expected_summary', '')
+    elif task_type == 'Conversational QA':
+        return row_dict.get('expected_answer', '')
+    elif task_type == 'Retrieval (RAG)':
+        return row_dict.get('expected_answer', '')
+    elif task_type == 'Classification':
+        return row_dict.get('expected_label', '')
+    elif task_type == 'Structured Output Generation':
+        return row_dict.get('expected_output', '')
+    elif task_type == 'Open-ended Generation':
+        return row_dict.get('reference_output', '')
+    else:
+        # Fallback: try to find any expected-like field
+        for key in ['expected_answer', 'expected_summary', 'expected_output', 'expected_label']:
+            if key in row_dict:
+                return row_dict[key]
+        return ""
 
 
-@router.get("/results/{evaluation_id}", response_model=APIResponse)
-async def get_evaluation_result(
-    evaluation_id: str,
-    http_request: Request,
-    db: AsyncIOMotorDatabase = Depends(get_database)
-):
-    """Get evaluation results by ID."""
-    
-    with tracer.start_as_current_span("get_evaluation_result") as span:
-        span.set_attribute("evaluation.id", evaluation_id)
-        
-        try:
-            from bson import ObjectId
-            if not ObjectId.is_valid(evaluation_id):
-                raise HTTPException(status_code=400, detail="Invalid evaluation ID")
-            
-            collection = db.get_collection("batch_evaluations")
-            doc = await collection.find_one({"_id": ObjectId(evaluation_id)})
-            
-            if not doc:
-                raise HTTPException(status_code=404, detail="Evaluation not found")
-            
-            evaluation = BatchEvaluationResult(**doc)
-            
-            return APIResponse(
-                message="Evaluation result found",
-                data=evaluation,
-                trace_id=getattr(http_request.state, 'trace_id', None)
-            )
-            
-        except HTTPException:
-            raise
-        except Exception as e:
-            logger.error("Failed to get evaluation result", evaluation_id=evaluation_id, error=str(e))
-            raise HTTPException(
-                status_code=500,
-                detail=f"Failed to get evaluation result: {str(e)}"
-            )
